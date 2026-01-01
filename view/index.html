@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="BelanjaHub - Toko Online Fashion Terlengkap dengan Kualitas Terbaik dan Harga Terjangkau">
+    <title>BelanjaHub - Toko Online Fashion</title>
+    
+    <!-- PERBAIKAN PATH CSS: gunakan ../css/style.css -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/chat.css" />
+    
+    <!-- Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome untuk icon -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a class="brand" href="index.html" aria-label="BelanjaHub Home">
+                <img src="../img/logo.png" alt="Logo BelanjaHub" class="logo" />
+                <span class="brand-text">BelanjaHub</span>
+            </a>
+            
+            <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="clothing.html" class="nav-link">Clothing</a>
+                <a href="accessoris.html" class="nav-link">Accessories</a>
+                <a href="shoes.html" class="nav-link">Shoes</a>
+            </nav>
+            <!-- Hapus action ke Google, ganti jadi # -->
+            <form id="searchForm" class="search" action="#" method="get" role="search">
+                <div class="search-container">
+                    <input 
+                        id="searchInput" 
+                        name="q" 
+                        type="search" 
+                        placeholder="Cari produk fashion..." 
+                        aria-label="Cari produk"
+                        autocomplete="off"
+                    />
+                    <button type="submit" class="search-icon" aria-label="Search">🔍</button>
+                </div>
+            </form>
+            
+            <!-- Cart Icon dengan count -->
+            <div class="cart-icon" id="cartIcon" role="button" aria-label="Cart" tabindex="0">
+                <a href="cart.html" class="cart-link">
+                    <span class="cart-icon-symbol" aria-hidden="true">
+                        <i class="fas fa-shopping-cart"></i>
+                    </span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+            
+            <div class="auth-actions">
+                <a id="loginBtn" class="btn primary" href="login.html" aria-label="Login or Sign Up">
+                    Login
+                </a>
+                <div id="userInfo" class="user-info">
+                    <span id="userName" class="user-name"></span>
+                    <button id="logoutBtn" class="btn small logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner Section -->
+        <section class="hero-section" aria-label="Hero Banner">
+            <div class="hero-container">
+                <div class="hero-banner">
+                    <!-- PERBAIKAN: Gunakan gambar yang tersedia -->
+                    <img src="../img/banner.png" alt="Fashion Collection - Belanja Fashion Terbaru dengan Diskon Spesial" class="hero-image" />
+                    <div class="hero-content">
+                        <h1 class="hero-title">Koleksi Fashion Terbaru 2025</h1>
+                        <p class="hero-subtitle">Diskon Hingga 60% untuk Produk Pilihan</p>
+                        <p class="hero-description">Temukan gaya terbaikmu dengan kualitas premium dan harga terjangkau</p>
+                        <a href="clothing.html" class="hero-btn">Jelajahi Koleksi</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+           <!-- Ganti dengan featured products atau banner lain -->
+    <section class="featured-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Featured Collections</h2>
+                <p class="section-subtitle">Koleksi terbaik dari BelanjaHub</p>
+            </div>
+            <div class="featured-grid">
+    <!-- Clothing Category -->
+    <a href="clothing.html" class="featured-category">
+        <img src="../img/baju.png" alt="Koleksi Pakaian Pria">
+        <div class="view-overlay">
+            <span>Lihat Koleksi →</span>
+        </div>
+        <h3>Pakaian Pria</h3>
+        <p>Kaos, kemeja, jaket, dan lainnya</p>
+    </a>
+    
+    <!-- Accessories Category -->
+    <a href="accessoris.html" class="featured-category">
+        <img src="../img/baju.png" alt="Koleksi Aksesoris">
+        <div class="view-overlay">
+            <span>Lihat Koleksi →</span>
+        </div>
+        <h3>Aksesoris Fashion</h3>
+        <p>Tas, jam, topi, dan aksesoris lainnya</p>
+    </a>
+    
+    <!-- Shoes Category -->
+    <a href="shoes.html" class="featured-category">
+        <img src="../img/baju.png" alt="Koleksi Sepatu">
+        <div class="view-overlay">
+            <span>Lihat Koleksi →</span>
+        </div>
+        <h3>Sepatu & Footwear</h3>
+        <p>Sneakers, formal shoes, boots, dan lainnya</p>
+    </a>
+</div>
+        </div>
+    </section>
+    </main>
+    <!-- Live Chat Widget -->
+<div class="live-chat-widget" id="liveChatWidget">
+    <button class="chat-toggle" id="chatToggle" aria-label="Open Chat">
+        <i class="fas fa-comments"></i>
+        <span class="chat-badge" id="chatBadge">0</span>
+    </button>
+    
+    <div class="chat-container" id="chatContainer">
+        <div class="chat-header">
+            <div class="chat-header-info">
+                <h3><i class="fas fa-headset"></i> Live Chat Support</h3>
+                <p class="chat-status">
+                    <span class="status-dot online"></span>
+                    Online - Balas dalam beberapa menit
+                </p>
+            </div>
+            <button class="chat-close" id="chatClose" aria-label="Close Chat">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <!-- Pesan akan muncul di sini -->
+            <div class="message bot">
+                <div class="message-content">
+                    <div class="message-sender">
+                        <i class="fas fa-robot"></i> BelanjaHub Bot
+                    </div>
+                    <div class="message-text">
+                        Halo! 👋 Saya Bot BelanjaHub. Ada yang bisa saya bantu? Silakan tanyakan tentang produk, pengiriman, atau pembayaran.
+                    </div>
+                    <div class="message-time">Baru saja</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="quick-replies">
+            <button class="quick-reply" data-question="Ada diskon hari ini?">
+                <i class="fas fa-tag"></i> Ada diskon?
+            </button>
+            <button class="quick-reply" data-question="Berapa lama pengiriman?">
+                <i class="fas fa-truck"></i> Pengiriman
+            </button>
+            <button class="quick-reply" data-question="Cara bayar bagaimana?">
+                <i class="fas fa-credit-card"></i> Cara Bayar
+            </button>
+        </div>
+        
+        <div class="chat-input">
+            <input 
+                type="text" 
+                id="chatInput" 
+                placeholder="Ketik pesan Anda..."
+                autocomplete="off"
+            />
+            <button id="sendMessage" class="send-btn" aria-label="Send Message">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>  
+    <!-- JavaScript -->
+<!-- JavaScript -->
+ <script src="../js/chat.js"></script>
+<script src="../js/script.js"></script>
+
+<script>
+    // Cart System untuk Index Page
+    document.addEventListener('DOMContentLoaded', function() {
+        // Add to cart functionality untuk etalase baju pria
+        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const productId = parseInt(this.getAttribute('data-id'));
+                const productCard = this.closest('.fashion-card');
+                const productName = productCard.querySelector('.fashion-title').textContent;
+                const productPrice = parseInt(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace('.', ''));
+                
+                // Gunakan fungsi global dari script.js
+                const added = addToCart(productId, productName, productPrice, '../img/baju.png');
+                
+                if (added) {
+                    // Button animation
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check"></i> Ditambahkan';
+                    this.disabled = true;
+                    
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.disabled = false;
+                    }, 1500);
+                }
+            });
+        });
+        
+        // Quick view functionality
+        document.querySelectorAll('.quick-view-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation();
+                const productCard = this.closest('.fashion-card');
+                const productName = productCard.querySelector('.fashion-title').textContent;
+                const productCategory = productCard.querySelector('.fashion-category').textContent;
+                const currentPrice = productCard.querySelector('.current-price').textContent;
+                
+                alert(`Quick View: ${productName}\nKategori: ${productCategory}\nHarga: ${currentPrice}\n\nFitur detail produk akan ditampilkan di sini.`);
+            });
+        });
+    });
+</script>
+</body>
+</html>

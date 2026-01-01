@@ -1,0 +1,554 @@
+/* ../css/login.css - CSS untuk halaman Login & Signup */
+
+/* Reset dan gaya dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(135deg, #FF7000 0%, #C60000 100%);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  color: #333;
+}
+
+/* Kontainer utama */
+.auth-page {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 90vh;
+}
+
+/* Kontainer kartu auth */
+.auth-container {
+  width: 100%;
+  max-width: 480px;
+  background-color: rgba(255, 255, 255, 0.98);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+  animation: fadeIn 0.8s ease-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Kartu auth */
+.auth-card {
+  padding: 40px 35px;
+}
+
+/* Header auth */
+.auth-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.auth-header h1 {
+  color: #C60000;
+  font-size: 32px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.auth-header h1 i {
+  color: #FF7000;
+  font-size: 36px;
+}
+
+.auth-header p {
+  color: #666;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+/* Judul form */
+.auth-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  font-size: 28px;
+  font-weight: 700;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.auth-form h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(to right, #FF7000, #C60000);
+  border-radius: 2px;
+}
+
+/* Gaya input group */
+.input-group {
+  margin-bottom: 25px;
+}
+
+.input-group label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+  color: #444;
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.input-group label i {
+  color: #C60000;
+  font-size: 16px;
+  width: 20px;
+}
+
+.input-group input {
+  display: block;
+  width: 100%;
+  padding: 16px 20px;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #FF7000;
+  background-color: white;
+  box-shadow: 0 0 0 4px rgba(255, 112, 0, 0.1);
+}
+
+.input-group input::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+/* Form options */
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0 30px;
+}
+
+.remember-me {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+}
+
+.remember-me input {
+  width: 18px;
+  height: 18px;
+  accent-color: #FF7000;
+}
+
+.forgot-password {
+  color: #C60000;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.forgot-password:hover {
+  color: #FF7000;
+  text-decoration: underline;
+}
+
+/* Terms checkbox */
+.terms {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #555;
+  margin: 20px 0 30px;
+}
+
+.terms input {
+  width: 18px;
+  height: 18px;
+  accent-color: #FF7000;
+}
+
+.terms-link {
+  color: #C60000;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
+  color: #FF7000;
+}
+
+/* Tindakan form */
+.form-actions {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+/* Gaya tombol */
+.btn {
+  padding: 16px 25px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 140px;
+}
+
+.btn.primary {
+  background: linear-gradient(135deg, #FF7000 0%, #C60000 100%);
+  color: white;
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(198, 0, 0, 0.2);
+}
+
+.btn.primary:active {
+  transform: translateY(-1px);
+}
+
+.btn.ghost {
+  background-color: transparent;
+  color: #C60000;
+  border: 2px solid #C60000;
+}
+
+.btn.ghost:hover {
+  background-color: rgba(198, 0, 0, 0.05);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(198, 0, 0, 0.1);
+}
+
+/* Auth divider */
+.auth-divider {
+  display: flex;
+  align-items: center;
+  margin: 30px 0;
+  color: #888;
+  font-size: 14px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #e0e0e0;
+}
+
+.auth-divider span {
+  padding: 0 15px;
+  background-color: white;
+}
+
+/* Tautan untuk beralih halaman */
+.auth-toggle {
+  text-align: center;
+  margin-top: 25px;
+  color: #666;
+  font-size: 15px;
+}
+
+.toggle-link {
+  color: #C60000;
+  text-decoration: none;
+  font-weight: 700;
+  transition: all 0.3s;
+  position: relative;
+  margin-left: 5px;
+}
+
+.toggle-link:hover {
+  color: #FF7000;
+}
+
+.toggle-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #FF7000;
+  transition: width 0.3s ease;
+}
+
+.toggle-link:hover::after {
+  width: 100%;
+}
+
+/* Animasi */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Pop-up Styling */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.popup {
+  background-color: white;
+  padding: 40px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  max-width: 450px;
+  width: 90%;
+  animation: popupIn 0.4s ease-out;
+}
+
+@keyframes popupIn {
+  from {
+    opacity: 0;
+    transform: scale(0.8) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.popup-icon {
+  font-size: 60px;
+  color: #2ecc71;
+  margin-bottom: 20px;
+  animation: bounce 0.6s ease;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+.popup h3 {
+  color: #333;
+  margin-bottom: 15px;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.popup p {
+  color: #666;
+  margin-bottom: 30px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.popup-btn {
+  background: linear-gradient(135deg, #FF7000 0%, #C60000 100%);
+  color: white;
+  border: none;
+  padding: 14px 35px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 200px;
+}
+
+.popup-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(198, 0, 0, 0.2);
+}
+
+/* Error Styling */
+.error-message {
+  color: #e74c3c;
+  font-size: 13px;
+  margin-top: 5px;
+  display: none;
+  font-weight: 500;
+}
+
+.input-error {
+  border-color: #e74c3c !important;
+  background-color: #fff5f5 !important;
+}
+
+.input-error:focus {
+  box-shadow: 0 0 0 4px rgba(231, 76, 60, 0.1) !important;
+}
+
+/* Loading state untuk tombol */
+.btn-loader {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsif untuk perangkat mobile */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  
+  .auth-container {
+    max-width: 95%;
+    border-radius: 15px;
+  }
+  
+  .auth-card {
+    padding: 30px 25px;
+  }
+  
+  .auth-header h1 {
+    font-size: 28px;
+  }
+  
+  .auth-form h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+  
+  .form-actions {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    min-width: unset;
+  }
+  
+  .popup {
+    padding: 30px 25px;
+  }
+  
+  .popup-btn {
+    min-width: 150px;
+    width: 100%;
+  }
+}
+
+/* Tablet landscape */
+@media (max-width: 1024px) and (min-width: 769px) {
+  .auth-container {
+    max-width: 500px;
+  }
+}
+
+/* Dark mode support (opsional) */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #333 0%, #111 100%);
+  }
+  
+  .auth-container {
+    background-color: rgba(30, 30, 30, 0.95);
+    color: #f0f0f0;
+  }
+  
+  .auth-form h2,
+  .auth-header h1,
+  .auth-header p {
+    color: #f0f0f0;
+  }
+  
+  .input-group label {
+    color: #ddd;
+  }
+  
+  .input-group input {
+    background-color: rgba(50, 50, 50, 0.8);
+    border-color: #444;
+    color: #f0f0f0;
+  }
+  
+  .input-group input:focus {
+    background-color: rgba(60, 60, 60, 0.8);
+  }
+  
+  .popup {
+    background-color: #222;
+    color: #f0f0f0;
+  }
+  
+  .popup h3 {
+    color: #f0f0f0;
+  }
+  
+  .popup p {
+    color: #ccc;
+  }
+  
+  .auth-divider span {
+    background-color: #222;
+  }
+}

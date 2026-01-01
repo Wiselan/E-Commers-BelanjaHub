@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="id">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="BelanjaHub - Aksesoris Fashion Terlengkap">
+    <title>BelanjaHub - Aksesoris Fashion</title>
+    
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/chat.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- NAVBAR SAMA PERSIS DENGAN index.html -->
+    <header class="navbar">
+        <div class="container">
+            <a class="brand" href="index.html" aria-label="BelanjaHub Home">
+                <img src="../img/logo.png" alt="Logo BelanjaHub" class="logo" />
+                <span class="brand-text">BelanjaHub</span>
+            </a>
+            
+            <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            
+            <nav class="nav-links" aria-label="Main Navigation">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="clothing.html" class="nav-link">Clothing</a>
+                <a href="accessories.html" class="nav-link active">Accessories</a>
+                <a href="shoes.html" class="nav-link">Shoes</a>
+            </nav>
+            
+                    <!-- Hapus action ke Google, ganti jadi # -->
+            <form id="searchForm" class="search" action="#" method="get" role="search">
+                <div class="search-container">
+                    <input 
+                        id="searchInput" 
+                        name="q" 
+                        type="search" 
+                        placeholder="Cari produk fashion..." 
+                        aria-label="Cari produk"
+                        autocomplete="off"
+                    />
+                    <button type="submit" class="search-icon" aria-label="Search">🔍</button>
+                </div>
+            </form>
+            
+            <!-- Cart Icon -->
+            <div class="cart-icon" id="cartIcon" role="button" aria-label="Cart" tabindex="0">
+                <a href="cart.html" class="cart-link">
+                    <span class="cart-icon-symbol" aria-hidden="true">
+                        <i class="fas fa-shopping-cart"></i>
+                    </span>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+            
+            <div class="auth-actions">
+                <a id="loginBtn" class="btn primary" href="login.html" aria-label="Login or Sign Up">
+                    Login
+                </a>
+                <div id="userInfo" class="user-info">
+                    <span id="userName" class="user-name"></span>
+                    <button id="logoutBtn" class="btn small logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section untuk Accessories -->
+        <section class="hero-section" aria-label="Accessories Banner">
+            <div class="hero-container">
+                <div class="hero-banner">
+                    <img src="../img/banner.png" alt="Aksesoris Fashion Terbaru" class="hero-image" />
+                    <div class="hero-content">
+                        <h1 class="hero-title">Koleksi Aksesoris 2025</h1>
+                        <p class="hero-subtitle">Lengkapkan Gaya dengan Aksesoris Terbaik</p>
+                        <p class="hero-description">Tas, jam tangan, topi, dan aksesoris lainnya untuk melengkapi penampilanmu</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Etalase Aksesoris -->
+        <section id="accessories-fashion" class="men-fashion-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Etalase Aksesoris</h2>
+                    <p class="section-subtitle">Koleksi aksesoris fashion terlengkap dengan kualitas terbaik</p>
+                </div>
+                
+                <div class="men-fashion-grid">
+                    <!-- Produk 1: Tas -->
+                    <div class="fashion-card">
+                        <div class="product-badge">Terlaris</div>
+                        <div class="fashion-image">
+                            <img src="../img/baju.png" alt="Tas Ransel Premium" />
+                            <div class="image-overlay">
+                                <button class="quick-view-btn">Lihat Cepat</button>
+                            </div>
+                        </div>
+                        <div class="fashion-info">
+                            <h3 class="fashion-title">Tas Ransel Premium</h3>
+                            <p class="fashion-category">Tas & Ransel</p>
+                            <div class="price-container">
+                                <span class="current-price">Rp 249.000</span>
+                                <span class="original-price">Rp 349.000</span>
+                                <span class="discount-badge">-29%</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(87)</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="201" data-name="Tas Ransel Premium" data-price="249000">
+                                <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Produk 2: Jam Tangan -->
+                    <div class="fashion-card" id="product-101">
+                        <div class="product-badge">Baru</div>
+                        <div class="fashion-image">
+                            <img src="../img/baju.png" alt="Jam Tangan Casual" />
+                            <div class="image-overlay">
+                                <button class="quick-view-btn">Lihat Cepat</button>
+                            </div>
+                        </div>
+                        <div class="fashion-info">
+                            <h3 class="fashion-title">Jam Tangan Casual</h3>
+                            <p class="fashion-category">Jam & Aksesoris</p>
+                            <div class="price-container">
+                                <span class="current-price">Rp 189.000</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-count">(64)</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="202" data-name="Jam Tangan Casual" data-price="189000">
+                                <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Produk 3: Topi -->
+                    <div class="fashion-card">
+                        <div class="fashion-image">
+                            <img src="../img/baju.png" alt="Topi Baseball Premium" />
+                            <div class="image-overlay">
+                                <button class="quick-view-btn">Lihat Cepat</button>
+                            </div>
+                        </div>
+                        <div class="fashion-info">
+                            <h3 class="fashion-title">Topi Baseball Premium</h3>
+                            <p class="fashion-category">Topi & Headwear</p>
+                            <div class="price-container">
+                                <span class="current-price">Rp 89.000</span>
+                                <span class="original-price">Rp 129.000</span>
+                                <span class="discount-badge">-31%</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <span class="rating-count">(112)</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="203" data-name="Topi Baseball Premium" data-price="89000">
+                                <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Produk 4: Dompet -->
+                    <div class="fashion-card">
+                        <div class="product-badge">Limited</div>
+                        <div class="fashion-image">
+                            <img src="../img/baju.png" alt="Dompet Kulit Pria" />
+                            <div class="image-overlay">
+                                <button class="quick-view-btn">Lihat Cepat</button>
+                            </div>
+                        </div>
+                        <div class="fashion-info">
+                            <h3 class="fashion-title">Dompet Kulit Pria</h3>
+                            <p class="fashion-category">Dompet & Wallet</p>
+                            <div class="price-container">
+                                <span class="current-price">Rp 159.000</span>
+                                <span class="original-price">Rp 219.000</span>
+                                <span class="discount-badge">-27%</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(45)</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="204" data-name="Dompet Kulit Pria" data-price="159000">
+                                <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Produk 5: Kacamata -->
+                    <div class="fashion-card">
+                        <div class="fashion-image">
+                            <img src="../img/baju.png" alt="Kacamata Hitam Premium" />
+                            <div class="image-overlay">
+                                <button class="quick-view-btn">Lihat Cepat</button>
+                            </div>
+                        </div>
+                        <div class="fashion-info">
+                            <h3 class="fashion-title">Kacamata Hitam Premium</h3>
+                            <p class="fashion-category">Kacamata</p>
+                            <div class="price-container">
+                                <span class="current-price">Rp 129.000</span>
+                                <span class="original-price">Rp 179.000</span>
+                                <span class="discount-badge">-28%</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <span class="rating-count">(78)</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="205" data-name="Kacamata Hitam Premium" data-price="129000">
+                                <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Produk 6: Gelang -->
+                    <div class="fashion-card">
+                        <div class="product-badge">Trending</div>
+                        <div class="fashion-image">
+                            <img src="../img/baju.png" alt="Gelang Kulit Pria" />
+                            <div class="image-overlay">
+                                <button class="quick-view-btn">Lihat Cepat</button>
+                            </div>
+                        </div>
+                        <div class="fashion-info">
+                            <h3 class="fashion-title">Gelang Kulit Pria</h3>
+                            <p class="fashion-category">Gelang & Bracelet</p>
+                            <div class="price-container">
+                                <span class="current-price">Rp 69.000</span>
+                                <span class="original-price">Rp 99.000</span>
+                                <span class="discount-badge">-30%</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(93)</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="206" data-name="Gelang Kulit Pria" data-price="69000">
+                                <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Produk 7: cincin -->
+                    <div class="fashion-card">
+                        <div class="product-badge">Trending</div>
+                        <div class="fashion-image">
+                            <img src="../img/baju.png" alt="Gelang Kulit Pria" />
+                            <div class="image-overlay">
+                                <button class="quick-view-btn">Lihat Cepat</button>
+                            </div>
+                        </div>
+                        <div class="fashion-info">
+                            <h3 class="fashion-title">Gelang Kulit Pria</h3>
+                            <p class="fashion-category">Gelang & Bracelet</p>
+                            <div class="price-container">
+                                <span class="current-price">Rp 69.000</span>
+                                <span class="original-price">Rp 99.000</span>
+                                <span class="discount-badge">-30%</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(93)</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="206" data-name="Gelang Kulit Pria" data-price="69000">
+                                <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Produk 8: Gesper -->
+                    <div class="fashion-card">
+                        <div class="product-badge">Trending</div>
+                        <div class="fashion-image">
+                            <img src="../img/baju.png" alt="Gelang Kulit Pria" />
+                            <div class="image-overlay">
+                                <button class="quick-view-btn">Lihat Cepat</button>
+                            </div>
+                        </div>
+                        <div class="fashion-info">
+                            <h3 class="fashion-title">Gelang Kulit Pria</h3>
+                            <p class="fashion-category">Gelang & Bracelet</p>
+                            <div class="price-container">
+                                <span class="current-price">Rp 69.000</span>
+                                <span class="original-price">Rp 99.000</span>
+                                <span class="discount-badge">-30%</span>
+                            </div>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                                <span class="rating-count">(93)</span>
+                            </div>
+                            <button class="add-to-cart-btn" data-id="206" data-name="Gelang Kulit Pria" data-price="69000">
+                                <i class="fas fa-cart-plus"></i> Tambah ke Keranjang
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+     
+    <!-- Live Chat Widget -->
+    <div class="live-chat-widget" id="liveChatWidget">
+        <button class="chat-toggle" id="chatToggle" aria-label="Open Chat">
+            <i class="fas fa-comments"></i>
+            <span class="chat-badge" id="chatBadge">0</span>
+        </button>
+        
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <h3><i class="fas fa-headset"></i> Live Chat Support</h3>
+                    <p class="chat-status">
+                        <span class="status-dot online"></span>
+                        Online - Balas dalam beberapa menit
+                    </p>
+                </div>
+                <button class="chat-close" id="chatClose" aria-label="Close Chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <!-- Pesan akan muncul di sini -->
+                <div class="message bot">
+                    <div class="message-content">
+                        <div class="message-sender">
+                            <i class="fas fa-robot"></i> BelanjaHub Bot
+                        </div>
+                        <div class="message-text">
+                            Halo! 👋 Saya Bot BelanjaHub. Ada yang bisa saya bantu? Silakan tanyakan tentang produk, pengiriman, atau pembayaran.
+                        </div>
+                        <div class="message-time">Baru saja</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quick-replies">
+                <button class="quick-reply" data-question="Ada diskon hari ini?">
+                    <i class="fas fa-tag"></i> Ada diskon?
+                </button>
+                <button class="quick-reply" data-question="Berapa lama pengiriman?">
+                    <i class="fas fa-truck"></i> Pengiriman
+                </button>
+                <button class="quick-reply" data-question="Cara bayar bagaimana?">
+                    <i class="fas fa-credit-card"></i> Cara Bayar
+                </button>
+            </div>
+            
+            <div class="chat-input">
+                <input 
+                    type="text" 
+                    id="chatInput" 
+                    placeholder="Ketik pesan Anda..."
+                    autocomplete="off"
+                />
+                <button id="sendMessage" class="send-btn" aria-label="Send Message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="../js/script.js"></script>
+    <script src="../js/chat.js"></script>
+    
+    <script>
+        // Cart System untuk Accessories Page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add to cart functionality untuk etalase aksesoris
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const productName = this.getAttribute('data-name');
+                    const productPrice = parseInt(this.getAttribute('data-price'));
+                    
+                    // Gunakan fungsi global dari script.js
+                    const added = addToCart(productId, productName, productPrice, '../img/baju.png');
+                    
+                    if (added) {
+                        // Button animation
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-check"></i> Ditambahkan';
+                        this.disabled = true;
+                        
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.disabled = false;
+                        }, 1500);
+                    }
+                });
+            });
+            
+            // Quick view functionality
+            document.querySelectorAll('.quick-view-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const productCard = this.closest('.fashion-card');
+                    const productName = productCard.querySelector('.fashion-title').textContent;
+                    const productCategory = productCard.querySelector('.fashion-category').textContent;
+                    const currentPrice = productCard.querySelector('.current-price').textContent;
+                    
+                    alert(`Quick View: ${productName}\nKategori: ${productCategory}\nHarga: ${currentPrice}`);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

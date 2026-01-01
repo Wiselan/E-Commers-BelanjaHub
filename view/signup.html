@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar - BelanjaHub</title>
+    <link rel="stylesheet" href="../css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <main class="auth-page">
+        <div class="auth-container">
+            <div class="auth-card">
+                <div class="auth-header">
+                    <h1><i class="fas fa-shopping-bag"></i> BelanjaHub</h1>
+                    <p>Buat akun baru untuk mulai berbelanja</p>
+                </div>
+                
+                <form id="signupForm" class="auth-form">
+                    <h2>Daftar Akun Baru</h2>
+                    
+                    <div class="input-group">
+                        <label for="name">
+                            <i class="fas fa-user"></i> Nama Lengkap
+                        </label>
+                        <input 
+                            type="text" 
+                            id="name" 
+                            name="name" 
+                            placeholder="Masukkan nama lengkap" 
+                            required 
+                        />
+                        <span class="error-message" id="nameError"></span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i> Email
+                        </label>
+                        <input 
+                            type="email" 
+                            id="email" 
+                            name="email" 
+                            placeholder="contoh@email.com" 
+                            required 
+                        />
+                        <span class="error-message" id="emailError"></span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="password">
+                            <i class="fas fa-lock"></i> Password
+                        </label>
+                        <input 
+                            type="password" 
+                            id="password" 
+                            name="password" 
+                            placeholder="Minimal 6 karakter" 
+                            required 
+                            minlength="6"
+                        />
+                        <span class="error-message" id="passwordError"></span>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="confirmPassword">
+                            <i class="fas fa-lock"></i> Konfirmasi Password
+                        </label>
+                        <input 
+                            type="password" 
+                            id="confirmPassword" 
+                            name="confirmPassword" 
+                            placeholder="Ketik ulang password" 
+                            required 
+                            minlength="6"
+                        />
+                        <span class="error-message" id="confirmPasswordError"></span>
+                    </div>
+                    
+                    <div class="form-options">
+                        <label class="terms">
+                            <input type="checkbox" id="agreeTerms" required>
+                            <span>Saya setuju dengan <a href="#" class="terms-link">Syarat & Ketentuan</a></span>
+                        </label>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="submit" class="btn primary" id="signupBtn">
+                            <span id="btnText">Daftar Sekarang</span>
+                            <div id="btnLoader" class="btn-loader"></div>
+                        </button>
+                        <a href="index.html" class="btn ghost">
+                            <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                        </a>
+                    </div>
+                    
+                    <div class="auth-divider">
+                        <span>atau</span>
+                    </div>
+                    
+                    <p class="auth-toggle">
+                        Sudah punya akun? 
+                        <a href="login.html" class="toggle-link">Login di sini</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- Pop-up untuk registrasi berhasil -->
+    <div class="popup-overlay" id="successPopup">
+        <div class="popup">
+            <div class="popup-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h3>Pendaftaran Berhasil!</h3>
+            <p id="welcomeMessage">Akun Anda telah berhasil dibuat.</p>
+            <button class="popup-btn primary" id="goToLogin">
+                <i class="fas fa-sign-in-alt"></i> Login Sekarang
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // Mengambil elemen form dan pop-up
+        const signupForm = document.getElementById('signupForm');
+        const successPopup = document.getElementById('successPopup');
+        const goToLoginBtn = document.getElementById('goToLogin');
+        const signupBtn = document.getElementById('signupBtn');
+        const btnText = document.getElementById('btnText');
+        const btnLoader = document.getElementById('btnLoader');
+        const welcomeMessage = document.getElementById('welcomeMessage');
+        
+        // Elemen input
+        const nameInput = document.getElementById('name');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmPasswordInput = document.getElementById('confirmPassword');
+        
+        // Error elements
+        const nameError = document.getElementById('nameError');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const confirmPasswordError = document.getElementById('confirmPasswordError');
+        
+        // Fungsi validasi email
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        // Fungsi untuk menampilkan error
+        function showError(inputElement, errorElement, message) {
+            inputElement.classList.add('input-error');
+            errorElement.textContent = message;
+            errorElement.style.display = 'block';
+        }
+        
+        // Fungsi untuk menghapus error
+        function hideError(inputElement, errorElement) {
+            inputElement.classList.remove('input-error');
+            errorElement.style.display = 'none';
+        }
+        
+        // Fungsi untuk menampilkan loading
+        function showLoading() {
+            btnText.style.opacity = '0.5';
+            btnLoader.style.display = 'block';
+            signupBtn.disabled = true;
+        }
+        
+        // Fungsi untuk menghapus loading
+        function hideLoading() {
+            btnText.style.opacity = '1';
+            btnLoader.style.display = 'none';
+            signupBtn.disabled = false;
+        }
+        
+        // Validasi real-time
+        nameInput.addEventListener('blur', function() {
+            const name = nameInput.value.trim();
+            if (!name) {
+                showError(nameInput, nameError, 'Nama harus diisi');
+            } else if (name.length < 3) {
+                showError(nameInput, nameError, 'Nama minimal 3 karakter');
+            } else {
+                hideError(nameInput, nameError);
+            }
+        });
+        
+        emailInput.addEventListener('blur', function() {
+            const email = emailInput.value.trim();
+            if (!email) {
+                showError(emailInput, emailError, 'Email harus diisi');
+            } else if (!isValidEmail(email)) {
+                showError(emailInput, emailError, 'Format email tidak valid');
+            } else {
+                // Cek apakah email sudah terdaftar
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const emailExists = users.some(user => user.email === email);
+                if (emailExists) {
+                    showError(emailInput, emailError, 'Email sudah terdaftar');
+                } else {
+                    hideError(emailInput, emailError);
+                }
+            }
+        });
+        
+        passwordInput.addEventListener('blur', function() {
+            const password = passwordInput.value;
+            if (!password) {
+                showError(passwordInput, passwordError, 'Password harus diisi');
+            } else if (password.length < 6) {
+                showError(passwordInput, passwordError, 'Password minimal 6 karakter');
+            } else {
+                hideError(passwordInput, passwordError);
+            }
+        });
+        
+        confirmPasswordInput.addEventListener('blur', function() {
+            const password = passwordInput.value;
+            const confirmPassword = confirmPasswordInput.value;
+            
+            if (!confirmPassword) {
+                showError(confirmPasswordInput, confirmPasswordError, 'Konfirmasi password harus diisi');
+            } else if (password !== confirmPassword) {
+                showError(confirmPasswordInput, confirmPasswordError, 'Password tidak cocok');
+            } else {
+                hideError(confirmPasswordInput, confirmPasswordError);
+            }
+        });
+        
+        // Event listener untuk form submission
+        signupForm.addEventListener('submit', async function(event) {
+            event.preventDefault();
+            
+            let isValid = true;
+            
+            // Validasi nama
+            const name = nameInput.value.trim();
+            if (!name) {
+                showError(nameInput, nameError, 'Nama harus diisi');
+                isValid = false;
+            } else if (name.length < 3) {
+                showError(nameInput, nameError, 'Nama minimal 3 karakter');
+                isValid = false;
+            }
+            
+            // Validasi email
+            const email = emailInput.value.trim();
+            if (!email) {
+                showError(emailInput, emailError, 'Email harus diisi');
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                showError(emailInput, emailError, 'Format email tidak valid');
+                isValid = false;
+            } else {
+                // Cek email unik
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const emailExists = users.some(user => user.email === email);
+                if (emailExists) {
+                    showError(emailInput, emailError, 'Email sudah terdaftar');
+                    isValid = false;
+                }
+            }
+            
+            // Validasi password
+            const password = passwordInput.value;
+            if (!password) {
+                showError(passwordInput, passwordError, 'Password harus diisi');
+                isValid = false;
+            } else if (password.length < 6) {
+                showError(passwordInput, passwordError, 'Password minimal 6 karakter');
+                isValid = false;
+            }
+            
+            // Validasi konfirmasi password
+            const confirmPassword = confirmPasswordInput.value;
+            if (!confirmPassword) {
+                showError(confirmPasswordInput, confirmPasswordError, 'Konfirmasi password harus diisi');
+                isValid = false;
+            } else if (password !== confirmPassword) {
+                showError(confirmPasswordInput, confirmPasswordError, 'Password tidak cocok');
+                isValid = false;
+            }
+            
+            // Validasi terms
+            const agreeTerms = document.getElementById('agreeTerms').checked;
+            if (!agreeTerms) {
+                alert('Anda harus menyetujui Syarat & Ketentuan');
+                isValid = false;
+            }
+            
+            if (isValid) {
+                showLoading();
+                
+                // Simulasi delay
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Simpan user ke localStorage
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const newUser = {
+                    id: Date.now(),
+                    name: name,
+                    email: email,
+                    password: password,
+                    createdAt: new Date().toISOString()
+                };
+                
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                // Auto login setelah registrasi
+                localStorage.setItem('isLoggedIn', 'true');
+                localStorage.setItem('userEmail', email);
+                localStorage.setItem('userName', name);
+                
+                // Update welcome message
+                welcomeMessage.textContent = `Selamat bergabung, ${name}!`;
+                
+                // Tampilkan pop-up sukses
+                successPopup.style.display = 'flex';
+                
+                hideLoading();
+            }
+        });
+        
+        // Event listener untuk tombol "Login Sekarang"
+        goToLoginBtn.addEventListener('click', function() {
+            window.location.href = 'index.html';
+        });
+        
+        // Terms link
+        document.querySelector('.terms-link')?.addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Syarat & Ketentuan:\n\n1. Anda bertanggung jawab atas keamanan akun\n2. Data pribadi akan dilindungi\n3. Tidak diperbolehkan melakukan kecurangan\n\n(Catatan: Ini hanya contoh)');
+        });
+        
+        // Auto-focus ke name input
+        nameInput.focus();
+    </script>
+</body>
+</html>
