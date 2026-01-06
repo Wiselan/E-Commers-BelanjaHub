@@ -1,12 +1,10 @@
-// chat.js
+// chat.js - Fix Double Message Issue
 document.addEventListener('DOMContentLoaded', function() {
     // Cek apakah user sudah login
     function isUserLoggedIn() {
-        // Cek dari localStorage atau sessionStorage
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true' || 
                           sessionStorage.getItem('isLoggedIn') === 'true';
         
-        // Cek juga jika ada user data
         const userData = JSON.parse(localStorage.getItem('userData') || sessionStorage.getItem('userData') || '{}');
         
         return isLoggedIn || (userData && userData.isLoggedIn);
@@ -23,8 +21,15 @@ document.addEventListener('DOMContentLoaded', function() {
         return;
     }
     
+    // Cek apakah chat sudah diinisialisasi
+    if (window.chatInitialized) {
+        console.log('Chat sudah diinisialisasi sebelumnya');
+        return;
+    }
+    
     // Inisialisasi Live Chat
     initializeLiveChat();
+    window.chatInitialized = true;
     
     function initializeLiveChat() {
         const chatWidget = document.getElementById('liveChatWidget');
@@ -37,38 +42,69 @@ document.addEventListener('DOMContentLoaded', function() {
         const chatBadge = document.getElementById('chatBadge');
         const quickReplies = document.querySelectorAll('.quick-reply');
         
+        if (!chatWidget) return;
+        
         let isChatOpen = false;
         let unreadMessages = 0;
+        let isProcessing = false; // Flag untuk cek jika sedang memproses pesan
         
         // Tampilkan widget chat
         chatWidget.style.display = 'block';
         
-        // Event Listeners
-        chatToggle.addEventListener('click', toggleChat);
-        chatClose.addEventListener('click', closeChat);
-        sendButton.addEventListener('click', sendMessage);
-        chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') sendMessage();
-        });
+        // Hapus semua event listener sebelumnya (jika ada)
+        const newToggle = chatToggle.cloneNode(true);
+        chatToggle.parentNode.replaceChild(newToggle, chatToggle);
         
-        // Quick replies
+        if (sendButton) {
+            const newSendButton = sendButton.cloneNode(true);
+            sendButton.parentNode.replaceChild(newSendButton, sendButton);
+        }
+        
+        // Event Listeners - hanya satu kali
+        newToggle.addEventListener('click', toggleChat);
+        
+        if (chatClose) {
+            chatClose.addEventListener('click', closeChat);
+        }
+        
+        if (sendButton) {
+            sendButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                sendMessage();
+            });
+        }
+        
+        if (chatInput) {
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    sendMessage();
+                }
+            });
+        }
+        
+        // Quick replies - Hapus event listener lama dulu
         quickReplies.forEach(button => {
-            button.addEventListener('click', function() {
+            const newButton = button.cloneNode(true);
+            button.parentNode.replaceChild(newButton, button);
+            
+            newButton.addEventListener('click', function(e) {
+                e.preventDefault();
                 const question = this.getAttribute('data-question');
-                sendQuickReply(question);
+                if (question) sendQuickReply(question);
             });
         });
         
         // Close chat jika klik di luar
         document.addEventListener('click', function(e) {
-            if (isChatOpen && 
+            if (isChatOpen && chatContainer && 
                 !chatContainer.contains(e.target) && 
-                !chatToggle.contains(e.target)) {
+                !newToggle.contains(e.target)) {
                 closeChat();
             }
         });
         
-        // Load chat history
+        // Load chat history dari sessionStorage
         loadChatHistory();
         
         function toggleChat() {
@@ -81,54 +117,75 @@ document.addEventListener('DOMContentLoaded', function() {
         
         function openChat() {
             isChatOpen = true;
-            chatContainer.classList.add('active');
-            chatToggle.style.transform = 'rotate(360deg)';
-            chatInput.focus();
-            
-            // Reset badge
-            unreadMessages = 0;
-            updateBadge();
+            if (chatContainer) {
+                chatContainer.classList.add('active');
+                newToggle.style.transform = 'rotate(360deg)';
+                if (chatInput) chatInput.focus();
+                
+                // Reset badge
+                unreadMessages = 0;
+                updateBadge();
+            }
         }
         
         function closeChat() {
             isChatOpen = false;
-            chatContainer.classList.remove('active');
-            chatToggle.style.transform = 'rotate(0deg)';
+            if (chatContainer) {
+                chatContainer.classList.remove('active');
+                newToggle.style.transform = 'rotate(0deg)';
+            }
         }
         
         function sendMessage() {
+            if (!chatInput || isProcessing) return;
+            
             const message = chatInput.value.trim();
             
             if (message) {
+                isProcessing = true; // Set flag sedang memproses
+                
+                // Simpan ke sessionStorage
+                saveToChatHistory(message, 'user');
+                
+                // Tampilkan di chat user
                 addMessage(message, 'user');
                 chatInput.value = '';
-                saveToHistory(message, 'user');
                 
-                // Auto-reply bot
+                // Auto-reply bot setelah 1 detik
                 setTimeout(() => {
                     const responses = [
                         "Terima kasih pesannya! Tim kami akan membalas secepatnya.",
                         "Pertanyaan Anda telah tercatat. Mohon tunggu balasan dari CS kami.",
                         "Untuk informasi produk, silakan cek halaman detail produk ya!",
                         "Diskon sedang berlangsung hingga 60% untuk produk pilihan!",
-                        "Pengiriman biasanya 2-5 hari kerja untuk Jabodetabek."
+                        "Pengiriman biasanya 2-5 hari kerja untuk Jabodetabek.",
+                        "Apakah ada hal lain yang bisa saya bantu?"
                     ];
                     const randomResponse = responses[Math.floor(Math.random() * responses.length)];
+                    
+                    // Simpan balasan bot ke sessionStorage
+                    saveToChatHistory(randomResponse, 'bot');
                     addMessage(randomResponse, 'bot');
-                    saveToHistory(randomResponse, 'bot');
                     
                     // Jika chat tertutup, tambah badge
                     if (!isChatOpen) {
                         unreadMessages++;
                         updateBadge();
                     }
+                    
+                    isProcessing = false; // Reset flag
                 }, 1000);
             }
         }
         
         function sendQuickReply(question) {
+            if (isProcessing) return;
+            
+            isProcessing = true;
+            
+            // Simpan ke sessionStorage
+            saveToChatHistory(question, 'user');
             addMessage(question, 'user');
-            saveToHistory(question, 'user');
             
             setTimeout(() => {
                 let response;
@@ -143,17 +200,31 @@ document.addEventListener('DOMContentLoaded', function() {
                     response = "Terima kasih! CS kami akan segera menghubungi Anda.";
                 }
                 
+                // Simpan balasan bot ke sessionStorage
+                saveToChatHistory(response, 'bot');
                 addMessage(response, 'bot');
-                saveToHistory(response, 'bot');
                 
                 if (!isChatOpen) {
                     unreadMessages++;
                     updateBadge();
                 }
+                
+                isProcessing = false;
             }, 800);
         }
         
         function addMessage(text, sender) {
+            if (!chatMessages) return;
+            
+            // Cek apakah pesan sama sudah ada (untuk mencegah duplikasi)
+            const existingMessages = chatMessages.querySelectorAll('.message-text');
+            for (let msg of existingMessages) {
+                if (msg.textContent === text) {
+                    // Pesan sudah ada, skip
+                    return;
+                }
+            }
+            
             const messageDiv = document.createElement('div');
             messageDiv.className = `message ${sender}`;
             
@@ -181,6 +252,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         function updateBadge() {
+            if (!chatBadge) return;
+            
             if (unreadMessages > 0) {
                 chatBadge.textContent = unreadMessages;
                 chatBadge.style.display = 'flex';
@@ -189,32 +262,56 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
         
-        function saveToHistory(message, sender) {
-            const chatHistory = JSON.parse(localStorage.getItem('belanjahub_chat') || '[]');
+        function saveToChatHistory(message, sender) {
+            // Gunakan sessionStorage
+            const chatHistory = JSON.parse(sessionStorage.getItem('belanjahub_chat') || '[]');
             
-            chatHistory.push({
-                message: message,
-                sender: sender,
-                timestamp: new Date().toISOString()
-            });
+            // Cek apakah pesan sudah ada untuk mencegah duplikasi
+            const isDuplicate = chatHistory.some(item => 
+                item.message === message && item.sender === sender
+            );
             
-            // Simpan maks 50 pesan terakhir
-            if (chatHistory.length > 50) {
-                chatHistory.splice(0, chatHistory.length - 50);
+            if (!isDuplicate) {
+                chatHistory.push({
+                    message: message,
+                    sender: sender,
+                    timestamp: new Date().toISOString()
+                });
+                
+                // Simpan maks 50 pesan terakhir
+                if (chatHistory.length > 50) {
+                    chatHistory.splice(0, chatHistory.length - 50);
+                }
+                
+                sessionStorage.setItem('belanjahub_chat', JSON.stringify(chatHistory));
             }
-            
-            localStorage.setItem('belanjahub_chat', JSON.stringify(chatHistory));
         }
         
         function loadChatHistory() {
-            const chatHistory = JSON.parse(localStorage.getItem('belanjahub_chat') || '[]');
+            if (!chatMessages) return;
+            
+            // Load dari sessionStorage
+            const chatHistory = JSON.parse(sessionStorage.getItem('belanjahub_chat') || '[]');
             
             // Hapus pesan default jika ada history
             if (chatHistory.length > 0) {
                 chatMessages.innerHTML = '';
             }
             
+            // Filter untuk menghapus duplikat sebelum menampilkan
+            const uniqueHistory = [];
+            const seenMessages = new Set();
+            
             chatHistory.forEach(item => {
+                const messageKey = `${item.sender}-${item.message}`;
+                if (!seenMessages.has(messageKey)) {
+                    seenMessages.add(messageKey);
+                    uniqueHistory.push(item);
+                }
+            });
+            
+            // Tampilkan pesan unik
+            uniqueHistory.forEach(item => {
                 addMessage(item.message, item.sender);
             });
         }
