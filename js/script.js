@@ -3,97 +3,60 @@
 // Data produk untuk search (Database produk)
 const productDatabase = [
     // Clothing products (ID 101-108)
-    { id: 101, name: "Kaos Polos Premium", category: "clothing", price: 99000, page: "clothing.html" },
-    { id: 102, name: "Kemeja Casual Pria", category: "clothing", price: 159000, page: "clothing.html" },
-    { id: 103, name: "Hoodie Oversize Pria", category: "clothing", price: 229000, page: "clothing.html" },
-    { id: 104, name: "Jaket Denim Pria", category: "clothing", price: 349000, page: "clothing.html" },
-    { id: 105, name: "Celana Chino Pria", category: "clothing", price: 189000, page: "clothing.html" },
-    { id: 106, name: "Sweater Rajut Pria", category: "clothing", price: 279000, page: "clothing.html" },
-    { id: 107, name: "Kaos Polo Pria", category: "clothing", price: 129000, page: "clothing.html" },
-    { id: 108, name: "Blazer Formal Pria", category: "clothing", price: 499000, page: "clothing.html" },
+    { id: 101, name: "Kaos Polos Premium", category: "clothing", price: 99000, page: "pages/clothing.html", img: "https://static.desty.app/desty-store/gudanggaram16/product/48adf6a837df4cc3beaaee30e3d02457?x-oss-process=image/format,webp" },
+    { id: 102, name: "Kemeja Casual Pria", category: "clothing", price: 159000, page: "pages/clothing.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/111/MTA-156964476/no-brand_kemeja-pria-kekinian-kemeja-casual-pria-terbaru-kemeja-polos-pria_full12.jpg" },
+    { id: 103, name: "Hoodie Oversize Pria", category: "clothing", price: 229000, page: "pages/clothing.html", img: "https://houseofsmith.co.id/wp-content/uploads/2025/10/ginee_20251021112846938_5104647282.jpg" },
+    { id: 104, name: "Jaket Denim Pria", category: "clothing", price: 349000, page: "pages/clothing.html", img: "https://konveksidiamond.com/wp-content/uploads/2023/02/Jaket-denim-jogja.jpeg" },
+    { id: 105, name: "Celana Chino Pria", category: "clothing", price: 189000, page: "pages/clothing.html", img: "https://down-id.img.susercontent.com/file/0fe1f469e02531b8cb51af722d22e18a" },
+    { id: 106, name: "Sweater Rajut Pria", category: "clothing", price: 279000, page: "pages/clothing.html", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_qQJ41TXO4mOqUmu_4adlMGQUhm-oxCI_8g&s" },
+    { id: 107, name: "Kaos Polo Pria", category: "clothing", price: 129000, page: "pages/clothing.html", img: "https://img.lazcdn.com/g/p/59c4f590181f34c0f380b00c5ff19370.jpg_720x720q80.jpg" },
+    { id: 108, name: "Blazer Formal Pria", category: "clothing", price: 499000, page: "pages/clothing.html", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBkAbIUUI-Z4MxxKJOKPZ5bntxpBSL1m5TFg&s" },
     
     // Accessories products (ID 201-206)
-    { id: 201, name: "Tas Ransel Premium", category: "accessories", price: 249000, page: "accessoris.html" },
-    { id: 202, name: "Jam Tangan Casual", category: "accessories", price: 189000, page: "accessoris.html" },
-    { id: 203, name: "Topi Baseball Premium", category: "accessories", price: 89000, page: "accessoris.html" },
-    { id: 204, name: "Dompet Kulit Pria", category: "accessories", price: 159000, page: "accessoris.html" },
-    { id: 205, name: "Kacamata Hitam Premium", category: "accessories", price: 129000, page: "accessoris.html" },
-    { id: 206, name: "Gelang Kulit Pria", category: "accessories", price: 69000, page: "accessoris.html" },
-    
+    { id: 201, name: "Tas Ransel Premium", category: "accessories", price: 249000, page: "pages/accessoris.html", img: "https://img.lazcdn.com/g/p/50a806e6a21e784d50ffea84df6a4dce.jpg_720x720q80.jpg" },
+    { id: 202, name: "Jam Tangan Casual", category: "accessories", price: 189000, page: "pages/accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7r98w-lyn7xbryitbcc1" },
+    { id: 203, name: "Topi Baseball Premium", category: "accessories", price: 89000, page: "pages/accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7qukx-lf0ua1cfd38t2e" },
+    { id: 204, name: "Dompet Kulit Pria", category: "accessories", price: 159000, page: "pages/accessoris.html", img: "https://down-id.img.susercontent.com/file/31676a8a0b186442550b15b282ae6fbf" },
+    { id: 205, name: "Kacamata Hitam Premium", category: "accessories", price: 129000, page: "pages/accessoris.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/103/MTA-153874624/gykaco_gykaco_nira_-_kacamata_hitam_wanita_-premium-_-_fashion_sunglasses_-import-_full08_u0sbzx25.jpg" },
+    { id: 206, name: "Gelang Kulit Pria", category: "accessories", price: 69000, page: "pages/accessoris.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-56837000/jiayiqi_bracelet-men-high-quality-leather-gelang-pria-gelang-kulit-cowok_full02.jpg" },
+    { id: 207, name: "Belt Kulit Premium", category: "accessories", price: 119000, page: "pages/accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7r992-ltc24kum6lq1e1" },
+    { id: 208, name: "Kalung Titanium", category: "accessories", price: 100000, page: "pages/accessoris.html", img: "https://bimg.akulaku.net/goods/spu/0d074c52ebb34cfd9db9195fd9dd421e7741.jpg?w=726&q=80&fit=1" },
+
     // Shoes products (ID 301-308)
-    { id: 301, name: "Sneakers Casual Premium", category: "shoes", price: 329000, page: "shoes.html" },
-    { id: 302, name: "Sepatu Formal Leather", category: "shoes", price: 489000, page: "shoes.html" },
-    { id: 303, name: "Running Shoes Sport", category: "shoes", price: 429000, page: "shoes.html" },
-    { id: 304, name: "Leather Boots Pria", category: "shoes", price: 659000, page: "shoes.html" },
-    { id: 305, name: "Sandal Casual Pria", category: "shoes", price: 129000, page: "shoes.html" },
-    { id: 306, name: "Slip On Casual Shoes", category: "shoes", price: 279000, page: "shoes.html" },
-    { id: 307, name: "Canvas Shoes Basic", category: "shoes", price: 199000, page: "shoes.html" },
-    { id: 308, name: "Loafers Premium", category: "shoes", price: 359000, page: "shoes.html" }
+    { id: 301, name: "Sneakers Casual Premium", category: "shoes", price: 329000, page: "pages/shoes.html", img: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/471a5872c7e24aa0856a04d3a08e357c~tplv-o3syd03w52-resize-webp:800:800.webp?dr=15584&t=555f072d&ps=933b5bde&shp=6ce186a1&shcp=e1be8f53&idc=my&from=1826719393" },
+    { id: 302, name: "Sepatu Formal Leather", category: "shoes", price: 489000, page: "pages/shoes.html", img: "https://www.ginomariani.com/cdn/shop/files/id-11134207-7rasg-m2c59rs5jn40f5.jpg?v=1757305113&width=1445" },
+    { id: 303, name: "Running Shoes Sport", category: "shoes", price: 429000, page: "pages/shoes.html", img: "https://m.media-amazon.com/images/I/71f3BmjCwtL.jpg" },
+    { id: 304, name: "Leather Boots Pria", category: "shoes", price: 659000, page: "pages/shoes.html", img: "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/N25135s3.jpg?im=Resize,width=750" },
+    { id: 305, name: "Sandal Casual Pria", category: "shoes", price: 129000, page: "pages/shoes.html", img: "https://down-id.img.susercontent.com/file/32f6e5d00d15b461e94c6bf40933942a" },
+    { id: 306, name: "Slip On Casual Shoes", category: "shoes", price: 279000, page: "pages/shoes.html", img: "https://image.made-in-china.com/202f0j00QCPfOVcUsWoT/Men-s-Foldable-Flat-Slip-on-Soft-Casual-Denim-Driving-Loafer-Shoes.webp" },
+    { id: 307, name: "Canvas Shoes Basic", category: "shoes", price: 199000, page: "pages/shoes.html", img: "https://i.ebayimg.com/images/g/afgAAOSwXKFnA7Ip/s-l1200.jpg" },
+    { id: 308, name: "Loafers Premium", category: "shoes", price: 359000, page: "pages/shoes.html", img: "https://dynamic.zacdn.com/xhMWUm1iL0paUfS7XUpYUvy-Jn0=/0x440/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/berrybenka-label-9821-7508215-1.jpg" }
 ];
 
 // ======================
-// 1. USER MANAGEMENT
+// 1. INITIALIZATION
 // ======================
+// ../js/script.js - Perbaikan bagian add-to-cart
+
+// GANTI fungsi setup event listener add-to-cart
 document.addEventListener('DOMContentLoaded', function() {
     checkLoginStatus();
     initializeMobileMenu();
-    checkScrollbar();
     initializeSearch();
+    updateCartCount();
     
-    // Periksa apakah ada user yang login
-    function checkLoginStatus() {
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        const userName = localStorage.getItem('userName');
-        const loginBtn = document.getElementById('loginBtn');
-        const userInfo = document.getElementById('userInfo');
-        const userNameSpan = document.getElementById('userName');
-        
-        if (isLoggedIn && userName) {
-            // User sudah login
-            if (loginBtn) loginBtn.style.display = 'none';
-            if (userInfo) {
-                userInfo.style.display = 'flex';
-                userInfo.classList.add('logged-in');
-            }
-            if (userNameSpan) userNameSpan.textContent = `Halo, ${userName}`;
-            
-            // Initialize live chat setelah login
-            setTimeout(initializeLiveChat, 500);
-        } else {
-            // User belum login
-            if (loginBtn) loginBtn.style.display = 'inline-block';
-            if (userInfo) {
-                userInfo.style.display = 'none';
-                userInfo.classList.remove('logged-in');
-            }
-            
-            // Sembunyikan live chat jika ada
-            const chatWidget = document.getElementById('liveChatWidget');
-            if (chatWidget) {
-                chatWidget.style.display = 'none';
-            }
-        }
-    }
+    // Setup event listeners untuk semua tombol "Tambah ke Keranjang" - DIPERBAIKI
+    setupAddToCartListeners();
     
-    // Logout functionality
+    // Setup event listener untuk logout
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(e) {
             e.preventDefault();
             
-            // Clear user data
             localStorage.removeItem('isLoggedIn');
             localStorage.removeItem('userName');
             localStorage.removeItem('userEmail');
-            
-            // Sembunyikan live chat
-            const chatWidget = document.getElementById('liveChatWidget');
-            if (chatWidget) {
-                chatWidget.style.display = 'none';
-            }
-            
-            // Clear chat history jika ingin
-            // localStorage.removeItem('belanjahub_chat');
             
             showNotification('Anda telah logout!');
             setTimeout(() => {
@@ -101,497 +64,103 @@ document.addEventListener('DOMContentLoaded', function() {
             }, 1000);
         });
     }
-    
-    // ======================
-    // 2. CART MANAGEMENT
-    // ======================
-    updateCartCount();
-    
-    // Fungsi untuk update cart count di semua halaman
-    function updateCartCount() {
-        const cart = getCart();
-        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
-        const cartCount = document.getElementById('cartCount');
-        
-        if (cartCount) {
-            cartCount.textContent = totalItems;
-            if (totalItems > 0) {
-                cartCount.classList.add('show');
-            } else {
-                cartCount.classList.remove('show');
-            }
-        }
-    }
-    
-    // Fungsi untuk mendapatkan cart dari localStorage
-    function getCart() {
-        return JSON.parse(localStorage.getItem('cart')) || [];
-    }
-    
-    // Fungsi untuk menyimpan cart ke localStorage
-    function saveCart(cart) {
-        localStorage.setItem('cart', JSON.stringify(cart));
-        updateCartCount();
-    }
-    
-    // Fungsi untuk menambahkan item ke cart
-    window.addToCart = function(productId, productName, productPrice, productImage = '../img/baju.png') {
-        // Check login status
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        
-        if (!isLoggedIn) {
-            if (confirm('Anda harus login terlebih dahulu untuk menambahkan ke keranjang. Login sekarang?')) {
-                window.location.href = 'login.html';
-            }
-            return false;
-        }
-        
-        let cart = getCart();
-        
-        // Check if product already in cart
-        const existingItem = cart.find(item => item.id === productId);
-        
-        if (existingItem) {
-            existingItem.quantity += 1;
-        } else {
-            cart.push({
-                id: productId,
-                name: productName,
-                price: productPrice,
-                image: productImage,
-                quantity: 1
-            });
-        }
-        
-        saveCart(cart);
-        showNotification(`${productName} berhasil ditambahkan ke keranjang!`);
-        return true;
-    }
-    
-    // Fungsi untuk menghapus item dari cart
-    window.removeFromCart = function(productId) {
-        let cart = getCart();
-        cart = cart.filter(item => item.id !== productId);
-        saveCart(cart);
-        return cart;
-    }
-    
-    // Fungsi untuk mengupdate quantity
-    window.updateCartQuantity = function(productId, quantity) {
-        if (quantity < 1) return removeFromCart(productId);
-        
-        let cart = getCart();
-        const item = cart.find(item => item.id === productId);
-        
-        if (item) {
-            item.quantity = quantity;
-            saveCart(cart);
-        }
-        
-        return cart;
-    }
-    
-    // Fungsi untuk menghitung total harga
-    window.calculateCartTotal = function() {
-        const cart = getCart();
-        return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
-    }
-    
-    // ======================
-    // 3. LIVE CHAT SYSTEM
-    // ======================
-    function initializeLiveChat() {
-        // Cek apakah user sudah login
-        const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-        if (!isLoggedIn) return;
-        
-        // Cek jika di halaman login/signup
-        const currentPath = window.location.pathname;
-        const isAuthPage = currentPath.includes('login.html') || currentPath.includes('signup.html');
-        if (isAuthPage) return;
-        
-        // Tunggu sebentar untuk memastikan DOM siap
-        setTimeout(() => {
-            const chatWidget = document.getElementById('liveChatWidget');
-            if (!chatWidget) return;
-            
-            // Tampilkan chat widget
-            chatWidget.style.display = 'block';
-            
-            // Setup chat functionality jika belum ada di halaman
-            if (!window.liveChatInitialized) {
-                setupChatFunctionality();
-                window.liveChatInitialized = true;
-            }
-        }, 1000);
-    }
-    
-    function setupChatFunctionality() {
-        const chatWidget = document.getElementById('liveChatWidget');
-        const chatToggle = document.getElementById('chatToggle');
-        const chatContainer = document.getElementById('chatContainer');
-        const chatClose = document.getElementById('chatClose');
-        const chatMessages = document.getElementById('chatMessages');
-        const chatInput = document.getElementById('chatInput');
-        const sendButton = document.getElementById('sendMessage');
-        const chatBadge = document.getElementById('chatBadge');
-        const quickReplies = document.querySelectorAll('.quick-reply');
-        
-        if (!chatWidget || !chatToggle) return;
-        
-        let isChatOpen = false;
-        let unreadMessages = 0;
-        
-        // Event Listeners
-        chatToggle.addEventListener('click', toggleChat);
-        if (chatClose) chatClose.addEventListener('click', closeChat);
-        if (sendButton) sendButton.addEventListener('click', sendMessage);
-        if (chatInput) chatInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') sendMessage();
-        });
-        
-        // Quick replies
-        if (quickReplies.length > 0) {
-            quickReplies.forEach(button => {
-                button.addEventListener('click', function() {
-                    const question = this.getAttribute('data-question');
-                    if (question) sendQuickReply(question);
-                });
-            });
-        }
-        
-        // Close chat jika klik di luar
-        document.addEventListener('click', function(e) {
-            if (isChatOpen && chatContainer && 
-                !chatContainer.contains(e.target) && 
-                !chatToggle.contains(e.target)) {
-                closeChat();
-            }
-        });
-        
-        // Load chat history
-        loadChatHistory();
-        
-        function toggleChat() {
-            if (isChatOpen) {
-                closeChat();
-            } else {
-                openChat();
-            }
-        }
-        
-        function openChat() {
-            isChatOpen = true;
-            if (chatContainer) {
-                chatContainer.classList.add('active');
-                chatToggle.style.transform = 'rotate(360deg)';
-                if (chatInput) chatInput.focus();
-                
-                // Reset badge
-                unreadMessages = 0;
-                updateBadge();
-            }
-        }
-        
-        function closeChat() {
-            isChatOpen = false;
-            if (chatContainer) {
-                chatContainer.classList.remove('active');
-                chatToggle.style.transform = 'rotate(0deg)';
-            }
-        }
-        
-        function sendMessage() {
-            if (!chatInput) return;
-            
-            const message = chatInput.value.trim();
-            
-            if (message) {
-                addMessage(message, 'user');
-                chatInput.value = '';
-                saveToChatHistory(message, 'user');
-                
-                // Auto-reply bot
-                setTimeout(() => {
-                    const responses = [
-                        "Terima kasih pesannya! Tim kami akan membalas secepatnya.",
-                        "Pertanyaan Anda telah tercatat. Mohon tunggu balasan dari CS kami.",
-                        "Untuk informasi produk, silakan cek halaman detail produk ya!",
-                        "Diskon sedang berlangsung hingga 60% untuk produk pilihan!",
-                        "Pengiriman biasanya 2-5 hari kerja untuk Jabodetabek.",
-                        "Apakah ada hal lain yang bisa saya bantu?"
-                    ];
-                    const randomResponse = responses[Math.floor(Math.random() * responses.length)];
-                    addMessage(randomResponse, 'bot');
-                    saveToChatHistory(randomResponse, 'bot');
-                    
-                    // Jika chat tertutup, tambah badge
-                    if (!isChatOpen) {
-                        unreadMessages++;
-                        updateBadge();
-                    }
-                }, 1000);
-            }
-        }
-        
-        function sendQuickReply(question) {
-            addMessage(question, 'user');
-            saveToChatHistory(question, 'user');
-            
-            setTimeout(() => {
-                let response;
-                
-                if (question.includes('diskon')) {
-                    response = "Ya! Saat ini ada diskon hingga 60% untuk koleksi musiman. Cek halaman produk untuk detailnya!";
-                } else if (question.includes('pengiriman')) {
-                    response = "Pengiriman memakan waktu 2-5 hari kerja untuk Jabodetabek dan 3-7 hari untuk luar kota. Gratis ongkir untuk pembelian di atas Rp 300.000!";
-                } else if (question.includes('bayar')) {
-                    response = "Kami menerima: Transfer Bank (BCA, Mandiri, BNI), E-Wallet (OVO, Gopay, Dana), dan COD (Cash on Delivery).";
-                } else {
-                    response = "Terima kasih! CS kami akan segera menghubungi Anda.";
-                }
-                
-                addMessage(response, 'bot');
-                saveToChatHistory(response, 'bot');
-                
-                if (!isChatOpen) {
-                    unreadMessages++;
-                    updateBadge();
-                }
-            }, 800);
-        }
-        
-        function addMessage(text, sender) {
-            if (!chatMessages) return;
-            
-            const messageDiv = document.createElement('div');
-            messageDiv.className = `message ${sender}`;
-            
-            const now = new Date();
-            const time = now.toLocaleTimeString('id-ID', { 
-                hour: '2-digit', 
-                minute: '2-digit' 
-            });
-            
-            let senderName = sender === 'user' ? 'Anda' : 'BelanjaHub Bot';
-            let senderIcon = sender === 'user' ? 'fas fa-user' : 'fas fa-robot';
-            
-            messageDiv.innerHTML = `
-                <div class="message-content">
-                    <div class="message-sender">
-                        <i class="${senderIcon}"></i> ${senderName}
-                    </div>
-                    <div class="message-text">${text}</div>
-                    <div class="message-time">${time}</div>
-                </div>
-            `;
-            
-            chatMessages.appendChild(messageDiv);
-            chatMessages.scrollTop = chatMessages.scrollHeight;
-        }
-        
-        function updateBadge() {
-            if (!chatBadge) return;
-            
-            if (unreadMessages > 0) {
-                chatBadge.textContent = unreadMessages;
-                chatBadge.style.display = 'flex';
-            } else {
-                chatBadge.style.display = 'none';
-            }
-        }
-        
-        function saveToChatHistory(message, sender) {
-            const chatHistory = JSON.parse(localStorage.getItem('belanjahub_chat') || '[]');
-            
-            chatHistory.push({
-                message: message,
-                sender: sender,
-                timestamp: new Date().toISOString()
-            });
-            
-            // Simpan maks 50 pesan terakhir
-            if (chatHistory.length > 50) {
-                chatHistory.splice(0, chatHistory.length - 50);
-            }
-            
-            localStorage.setItem('belanjahub_chat', JSON.stringify(chatHistory));
-        }
-        
-        function loadChatHistory() {
-            if (!chatMessages) return;
-            
-            const chatHistory = JSON.parse(localStorage.getItem('belanjahub_chat') || '[]');
-            
-            // Hapus pesan default jika ada history
-            if (chatHistory.length > 0) {
-                chatMessages.innerHTML = '';
-            }
-            
-            chatHistory.forEach(item => {
-                addMessage(item.message, item.sender);
-            });
-        }
-    }
-    
-    // ======================
-    // 4. MOBILE MENU TOGGLE
-    // ======================
-    function initializeMobileMenu() {
-        const menuToggle = document.getElementById('menuToggle');
-        const navLinks = document.querySelector('.nav-links');
-        
-        if (menuToggle && navLinks) {
-            menuToggle.addEventListener('click', function() {
-                const isExpanded = this.getAttribute('aria-expanded') === 'true';
-                this.setAttribute('aria-expanded', !isExpanded);
-                navLinks.classList.toggle('open');
-            });
-            
-            // Close menu when clicking outside
-            document.addEventListener('click', function(e) {
-                if (!menuToggle.contains(e.target) && !navLinks.contains(e.target)) {
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                    navLinks.classList.remove('open');
-                }
-            });
-        }
-    }
-    
-    // ======================
-    // 5. SEARCH FUNCTIONALITY
-    // ======================
-    function initializeSearch() {
-        const searchForm = document.getElementById('searchForm');
-        const searchInput = document.getElementById('searchInput');
-        
-        if (searchForm && searchInput) {
-            searchForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                handleSearch();
-            });
-            
-            searchInput.addEventListener('keypress', function(e) {
-                if (e.key === 'Enter') {
-                    e.preventDefault();
-                    handleSearch();
-                }
-            });
-            
-            const previousSearch = localStorage.getItem('searchTerm');
-            if (previousSearch) {
-                searchInput.value = previousSearch;
-            }
-        }
-    }
-    
-    // ======================
-    // 6. SCROLLBAR DETECTION
-    // ======================
-    function checkScrollbar() {
-        const navbarContainer = document.querySelector('.navbar .container');
-        const hasVerticalScrollbar = document.body.scrollHeight > window.innerHeight;
-        
-        if (navbarContainer && hasVerticalScrollbar) {
-            navbarContainer.classList.add('has-scrollbar');
-        } else if (navbarContainer) {
-            navbarContainer.classList.remove('has-scrollbar');
-        }
-    }
-    
-    window.addEventListener('resize', checkScrollbar);
-    
-    // Expose functions to global scope
-    window.getCart = getCart;
-    window.saveCart = saveCart;
-    window.checkScrollbar = checkScrollbar;
-    window.handleSearch = handleSearch;
 });
 
-// ======================
-// SEARCH FUNCTIONS (GLOBAL)
-// ======================
+// FUNGSI BARU untuk setup event listeners
+function setupAddToCartListeners() {
+    // Hapus semua event listener sebelumnya (prevent duplicate)
+    document.removeEventListener('click', handleAddToCartClick);
+    
+    // Tambahkan event listener baru
+    document.addEventListener('click', handleAddToCartClick);
+}
 
-function handleSearch() {
-    const searchInput = document.getElementById('searchInput');
-    const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
+// FUNGSI BARU untuk setup event listeners dengan data dari parent
+function handleAddToCartClick(e) {
+    const button = e.target.closest('.add-to-cart-btn');
+    if (!button) return;
     
-    if (!searchTerm) {
-        showNotification('Silakan masukkan kata kunci pencarian!');
+    e.preventDefault();
+    
+    // Ambil data dari parent element (fashion-card)
+    const productCard = button.closest('.fashion-card');
+    if (!productCard) return;
+    
+    const productId = productCard.getAttribute('data-id');
+    const productName = productCard.getAttribute('data-name');
+    const productPrice = parseInt(productCard.getAttribute('data-price'));
+    const productImg = productCard.getAttribute('data-img');
+    
+    // Validasi data
+    if (!productId || !productName || !productPrice) {
+        console.error('Product data missing!', {productId, productName, productPrice, productImg});
+        showNotification('Data produk tidak lengkap!', 'error');
         return;
     }
     
-    const results = productDatabase.filter(product => 
-        product.name.toLowerCase().includes(searchTerm) ||
-        product.category.toLowerCase().includes(searchTerm)
-    );
+    console.log('Add to cart clicked:', {
+        id: productId,
+        name: productName,
+        price: productPrice,
+        img: productImg 
+    });
     
-    if (results.length === 0) {
-        showNotification(`Tidak ditemukan produk dengan kata kunci "${searchTerm}"`);
-        return;
-    }
+    addToCart(productId, productName, productPrice, productImg);
+}
+
+// PERBAIKI fungsi addToCart
+function addToCart(productId, productName, productPrice, productImg) {
+    // Check login status
+    const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     
-    localStorage.setItem('lastSearch', searchTerm);
-    localStorage.setItem('lastResults', JSON.stringify(results));
-    
-    if (results.length === 1) {
-        const product = results[0];
-        window.location.href = `${product.page}#product-${product.id}`;
-    } else {
-        const categoryCount = {};
-        results.forEach(product => {
-            categoryCount[product.category] = (categoryCount[product.category] || 0) + 1;
-        });
-        
-        const topCategory = Object.keys(categoryCount).reduce((a, b) => 
-            categoryCount[a] > categoryCount[b] ? a : b
-        );
-        
-        if (topCategory === 'clothing') {
-            window.location.href = 'clothing.html';
-        } else if (topCategory === 'accessories') {
-            window.location.href = 'accessoris.html';
-        } else if (topCategory === 'shoes') {
-            window.location.href = 'shoes.html';
-        } else {
-            window.location.href = 'index.html';
+    if (!isLoggedIn) {
+        if (confirm('Anda harus login terlebih dahulu untuk menambahkan ke keranjang. Login sekarang?')) {
+            window.location.href = 'pages/login.html';
         }
+        return false;
     }
+    
+    let cart = getCart();
+    
+    // Convert productId ke number untuk konsistensi
+    const id = Number(productId);
+    
+    // Debug: Lihat apa yang ada di cart
+    console.log('Cart before adding:', cart);
+    
+    // Check if product already in cart
+    const existingItemIndex = cart.findIndex(item => item.id === id);
+    
+    if (existingItemIndex !== -1) {
+        // Update quantity jika sudah ada
+        cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
+        console.log('Updated existing item:', cart[existingItemIndex]);
+    } else {
+        // Tambah item baru
+        const newItem = {
+           id: id,
+            name: productName,
+            price: productPrice,
+            image: finalProductImg, // GUNAKAN finalProductImg
+            quantity: 1
+        };
+        console.log('Adding new item:', newItem);
+        cart.push(newItem);
+    }
+    
+    saveCart(cart);
+    
+    // Debug: Lihat cart setelah ditambah
+    console.log('Cart after adding:', cart);
+    
+    showNotification(`${productName} berhasil ditambahkan ke keranjang!`);
+    return true;
 }
 
 // ======================
-// GLOBAL FUNCTIONS
+// 2. USER MANAGEMENT
 // ======================
-
-// Fungsi untuk menampilkan notifikasi global
-window.showNotification = function(message, type = 'success') {
-    // Cek jika sudah ada notification
-    const existingNotification = document.querySelector('.cart-notification');
-    if (existingNotification) {
-        existingNotification.remove();
-    }
-    
-    const notification = document.createElement('div');
-    notification.className = `cart-notification ${type}`;
-    notification.innerHTML = `
-        <div class="notification-content">
-            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
-            <span>${message}</span>
-        </div>
-    `;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.opacity = '0';
-        setTimeout(() => {
-            notification.remove();
-        }, 300);
-    }, 3000);
-};
-
-// Fungsi untuk check login status global
-window.checkLoginStatus = function() {
+function checkLoginStatus() {
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     const userName = localStorage.getItem('userName');
     const loginBtn = document.getElementById('loginBtn');
@@ -612,53 +181,233 @@ window.checkLoginStatus = function() {
             userInfo.classList.remove('logged-in');
         }
     }
-};
+}
 
-// Fungsi untuk mendapatkan cart (global)
-window.getCart = function() {
-    return JSON.parse(localStorage.getItem('cart')) || [];
-};
-
-// Fungsi untuk menyimpan cart (global)
-window.saveCart = function(cart) {
-    localStorage.setItem('cart', JSON.stringify(cart));
-    
-    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+// ======================
+// 3. CART MANAGEMENT
+// ======================
+function updateCartCount() {
+    const cart = getCart();
+    const totalItems = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
     const cartCount = document.getElementById('cartCount');
+    
     if (cartCount) {
         cartCount.textContent = totalItems;
-        if (totalItems > 0) {
-            cartCount.classList.add('show');
-        } else {
-            cartCount.classList.remove('show');
-        }
+        cartCount.style.display = totalItems > 0 ? 'flex' : 'none';
     }
-};
+}
 
-// ======================
-// ADDITIONAL CHAT FUNCTIONS
-// ======================
+function getCart() {
+    return JSON.parse(localStorage.getItem('cart')) || [];
+}
 
-// Fungsi untuk toggle chat secara manual (bisa dipanggil dari console)
-window.toggleChat = function() {
-    const chatWidget = document.getElementById('liveChatWidget');
-    const chatToggle = document.getElementById('chatToggle');
-    
-    if (chatWidget && chatToggle) {
-        if (chatWidget.style.display === 'none' || !chatWidget.style.display) {
-            chatWidget.style.display = 'block';
-            chatToggle.click();
-        } else {
-            chatToggle.click();
-        }
-    }
-};
+function saveCart(cart) {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+}
 
-// Fungsi untuk cek apakah chat tersedia
-window.isChatAvailable = function() {
+function addToCart(productId, productName, productPrice, productImg) {
+    // Check login status
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-    const currentPath = window.location.pathname;
-    const isAuthPage = currentPath.includes('login.html') || currentPath.includes('signup.html');
     
-    return isLoggedIn && !isAuthPage;
-};
+    if (!isLoggedIn) {
+        if (confirm('Anda harus login terlebih dahulu untuk menambahkan ke keranjang. Login sekarang?')) {
+            window.location.href = 'pages/login.html';
+        }
+        return false;
+    }
+    
+    let cart = getCart();
+    
+    // Convert productId ke number untuk konsistensi
+    const id = Number(productId);
+    
+    // Check if product already in cart
+    const existingItem = cart.find(item => item.id === id);
+    
+    if (existingItem) {
+        existingItem.quantity = (existingItem.quantity || 1) + 1;
+    } else {
+        cart.push({
+            id: id,
+            name: productName,
+            price: productPrice,
+            image: productImg,
+            quantity: 1
+        });
+    }
+    
+    saveCart(cart);
+    showNotification(`${productName} berhasil ditambahkan ke keranjang!`);
+    return true;
+}
+
+function removeFromCart(productId) {
+    let cart = getCart();
+    cart = cart.filter(item => item.id !== productId);
+    saveCart(cart);
+    showNotification('Produk dihapus dari keranjang!');
+    return cart;
+}
+
+function updateCartQuantity(productId, quantity) {
+    if (quantity < 1) return removeFromCart(productId);
+    
+    let cart = getCart();
+    const item = cart.find(item => item.id === productId);
+    
+    if (item) {
+        item.quantity = quantity;
+        saveCart(cart);
+    }
+    
+    return cart;
+}
+
+function calculateCartTotal() {
+    const cart = getCart();
+    return cart.reduce((total, item) => total + (item.price * (item.quantity || 1)), 0);
+}
+
+// ======================
+// 4. MOBILE MENU TOGGLE
+// ======================
+function initializeMobileMenu() {
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.querySelector('.nav-links');
+    
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener('click', function() {
+            navLinks.classList.toggle('open');
+            this.classList.toggle('active');
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!menuToggle.contains(e.target) && !navLinks.contains(e.target) && navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                menuToggle.classList.remove('active');
+            }
+        });
+    }
+}
+
+// ======================
+// 5. SEARCH FUNCTIONALITY
+// ======================
+function initializeSearch() {
+    const searchForm = document.getElementById('searchForm');
+    const searchInput = document.getElementById('searchInput');
+    
+    if (searchForm && searchInput) {
+        searchForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleSearch();
+        });
+        
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                handleSearch();
+            }
+        });
+    }
+}
+
+function handleSearch() {
+    const searchInput = document.getElementById('searchInput');
+    const searchTerm = searchInput ? searchInput.value.trim().toLowerCase() : '';
+    
+    if (!searchTerm) {
+        showNotification('Silakan masukkan kata kunci pencarian!');
+        return;
+    }
+    
+    const results = productDatabase.filter(product => 
+        product.name.toLowerCase().includes(searchTerm) ||
+        product.category.toLowerCase().includes(searchTerm)
+    );
+    
+    if (results.length === 0) {
+        showNotification(`Tidak ditemukan produk dengan kata kunci "${searchTerm}"`, 'error');
+        return;
+    }
+    
+    // Simpan hasil pencarian untuk referensi
+    localStorage.setItem('lastSearch', searchTerm);
+    localStorage.setItem('lastResults', JSON.stringify(results));
+    
+    // Redirect ke halaman yang sesuai
+    if (results.length === 1) {
+        const product = results[0];
+        window.location.href = `${product.page}#product-${product.id}`;
+    } else {
+        const categoryCount = {};
+        results.forEach(product => {
+            categoryCount[product.category] = (categoryCount[product.category] || 0) + 1;
+        });
+        
+        const topCategory = Object.keys(categoryCount).reduce((a, b) => 
+            categoryCount[a] > categoryCount[b] ? a : b
+        );
+        
+        if (topCategory === 'clothing') {
+            window.location.href = 'pages/clothing.html';
+        } else if (topCategory === 'accessories') {
+            window.location.href = 'pages/accessoris.html';
+        } else if (topCategory === 'shoes') {
+            window.location.href = 'pages/shoes.html';
+        } else {
+            window.location.href = 'index.html';
+        }
+    }
+}
+
+// ======================
+// 6. UTILITY FUNCTIONS
+// ======================
+function showNotification(message, type = 'success') {
+    // Cek jika sudah ada notification
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+    
+    const notification = document.createElement('div');
+    notification.className = `notification ${type}`;
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    document.body.appendChild(notification);
+    
+    // Animasi masuk
+    setTimeout(() => {
+        notification.classList.add('show');
+    }, 10);
+    
+    // Hapus setelah 3 detik
+    setTimeout(() => {
+        notification.classList.remove('show');
+        setTimeout(() => {
+            notification.remove();
+        }, 300);
+    }, 3000);
+}
+
+// ======================
+// 7. GLOBAL FUNCTIONS
+// ======================
+// Export fungsi-fungsi penting ke global scope
+window.checkLoginStatus = checkLoginStatus;
+window.getCart = getCart;
+window.saveCart = saveCart;
+window.addToCart = addToCart;
+window.removeFromCart = removeFromCart;
+window.updateCartQuantity = updateCartQuantity;
+window.calculateCartTotal = calculateCartTotal;
+window.showNotification = showNotification;
+window.handleSearch = handleSearch;

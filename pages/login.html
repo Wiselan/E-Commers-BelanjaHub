@@ -63,7 +63,7 @@
               <span id="btnText">Login</span>
               <div id="btnLoader" class="btn-loader"></div>
             </button>
-            <a href="index.html" class="btn ghost">
+            <a href="../index.html" class="btn ghost">
               <i class="fas fa-arrow-left"></i> Kembali ke Beranda
             </a>
           </div>
@@ -242,13 +242,13 @@
     
     // Event listener untuk tombol "Lanjut ke Beranda"
     goToHomeBtn.addEventListener('click', function() {
-      window.location.href = 'index.html';
+      window.location.href = '../index.html';
     });
     
     // Opsional: Tutup pop-up dengan klik di luar pop-up
     successPopup.addEventListener('click', function(event) {
       if (event.target === successPopup) {
-        window.location.href = 'index.html';
+        window.location.href = '../index.html';
       }
     });
     

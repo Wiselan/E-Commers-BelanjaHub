@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keranjang Belanja - BelanjaHub</title>
+    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="cart-container">
+        <header class="cart-header">
+            <div class="header-top">
+                <!-- PERBAIKAN 1: Gunakan absolute path -->
+                <a href="../index.html" class="back-to-home">
+                    <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                </a>
+                <h1><i class="fas fa-shopping-cart"></i> Keranjang Belanja</h1>
+            </div>
+            <div class="cart-summary">
+                <span id="item-count">0 item</span>
+                <span class="total-price">Total: <span id="total-price">Rp 0</span></span>
+            </div>
+        </header>
+
+        <div class="cart-content">
+            <!-- Daftar item dalam keranjang -->
+            <div class="cart-items" id="cart-items">
+                <!-- Item keranjang akan ditambahkan secara dinamis -->
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-basket"></i>
+                    <p>Keranjang belanja Anda masih kosong</p>
+                    <button id="demo-add-items" class="btn demo-btn">Tambahkan Item Demo</button>
+                    <!-- PERBAIKAN 2: Link ke halaman beranda yang benar -->
+                    <a href="../index.html" class="btn back-btn">Lanjutkan Belanja</a>
+                </div>
+            </div>
+
+            <!-- Ringkasan belanja -->
+            <aside class="cart-sidebar">
+                <div class="order-summary">
+                    <h3>Ringkasan Pesanan</h3>
+                    <div class="summary-details">
+                        <div class="summary-row">
+                            <span>Subtotal</span>
+                            <span id="subtotal">Rp 0</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Pengiriman</span>
+                            <span id="shipping">Rp 0</span>
+                        </div>
+                        <div class="summary-row total">
+                            <span>Total</span>
+                            <span id="summary-total">Rp 0</span>
+                        </div>
+                    </div>
+                    
+                    <button id="checkout-btn" class="btn checkout-btn">
+                        <i class="fas fa-credit-card"></i> Lanjut ke Pembayaran
+                    </button>
+                    
+                    <!-- PERBAIKAN 3: Konsisten menggunakan absolute path -->
+                    <a href="../index.html" class="btn continue-shopping">
+                        <i class="fas fa-shopping-bag"></i> Lanjutkan Belanja
+                    </a>
+                    
+                    <!-- Tombol Clear Cart -->
+                    <button id="clear-cart-btn" class="btn clear-btn">
+                        <i class="fas fa-trash"></i> Kosongkan Keranjang
+                    </button>
+                </div>
+                
+                <!-- Demo Items Suggestion -->
+            </aside>
+        </div>
+
+        <!-- Notifikasi -->
+        <div id="notification" class="notification">
+            <span id="notification-text"></span>
+        </div>
+    </div>
+    
+    <script src="../js/script.js"></script>
+    <!-- Tambahkan di cart.html sebelum cart.js -->
+<script>
+// Database produk untuk mencari gambar
+window.productDatabase = [
+   // Clothing products (ID 101-108)
+    { id: 101, name: "Kaos Polos Premium", category: "clothing", price: 99000, page: "pages/clothing.html", img: "https://static.desty.app/desty-store/gudanggaram16/product/48adf6a837df4cc3beaaee30e3d02457?x-oss-process=image/format,webp" },
+    { id: 102, name: "Kemeja Casual Pria", category: "clothing", price: 159000, page: "pages/clothing.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/111/MTA-156964476/no-brand_kemeja-pria-kekinian-kemeja-casual-pria-terbaru-kemeja-polos-pria_full12.jpg" },
+    { id: 103, name: "Hoodie Oversize Pria", category: "clothing", price: 229000, page: "pages/clothing.html", img: "https://houseofsmith.co.id/wp-content/uploads/2025/10/ginee_20251021112846938_5104647282.jpg" },
+    { id: 104, name: "Jaket Denim Pria", category: "clothing", price: 349000, page: "pages/clothing.html", img: "https://konveksidiamond.com/wp-content/uploads/2023/02/Jaket-denim-jogja.jpeg" },
+    { id: 105, name: "Celana Chino Pria", category: "clothing", price: 189000, page: "pages/clothing.html", img: "https://down-id.img.susercontent.com/file/0fe1f469e02531b8cb51af722d22e18a" },
+    { id: 106, name: "Sweater Rajut Pria", category: "clothing", price: 279000, page: "pages/clothing.html", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_qQJ41TXO4mOqUmu_4adlMGQUhm-oxCI_8g&s" },
+    { id: 107, name: "Kaos Polo Pria", category: "clothing", price: 129000, page: "pages/clothing.html", img: "https://img.lazcdn.com/g/p/59c4f590181f34c0f380b00c5ff19370.jpg_720x720q80.jpg" },
+    { id: 108, name: "Blazer Formal Pria", category: "clothing", price: 499000, page: "pages/clothing.html", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBkAbIUUI-Z4MxxKJOKPZ5bntxpBSL1m5TFg&s" },
+    
+    // Accessories products (ID 201-206)
+    { id: 201, name: "Tas Ransel Premium", category: "accessories", price: 249000, page: "pages/accessoris.html", img: "https://img.lazcdn.com/g/p/50a806e6a21e784d50ffea84df6a4dce.jpg_720x720q80.jpg" },
+    { id: 202, name: "Jam Tangan Casual", category: "accessories", price: 189000, page: "pages/accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7r98w-lyn7xbryitbcc1" },
+    { id: 203, name: "Topi Baseball Premium", category: "accessories", price: 89000, page: "pages/accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7qukx-lf0ua1cfd38t2e" },
+    { id: 204, name: "Dompet Kulit Pria", category: "accessories", price: 159000, page: "pages/accessoris.html", img: "https://down-id.img.susercontent.com/file/31676a8a0b186442550b15b282ae6fbf" },
+    { id: 205, name: "Kacamata Hitam Premium", category: "accessories", price: 129000, page: "pages/accessoris.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/103/MTA-153874624/gykaco_gykaco_nira_-_kacamata_hitam_wanita_-premium-_-_fashion_sunglasses_-import-_full08_u0sbzx25.jpg" },
+    { id: 206, name: "Gelang Kulit Pria", category: "accessories", price: 69000, page: "pages/accessoris.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-56837000/jiayiqi_bracelet-men-high-quality-leather-gelang-pria-gelang-kulit-cowok_full02.jpg" },
+    { id: 207, name: "Belt Kulit Premium", category: "accessories", price: 119000, page: "pages/accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7r992-ltc24kum6lq1e1" },
+    { id: 208, name: "Kalung Titanium", category: "accessories", price: 100000, page: "pages/accessoris.html", img: "https://bimg.akulaku.net/goods/spu/0d074c52ebb34cfd9db9195fd9dd421e7741.jpg?w=726&q=80&fit=1" },
+
+    // Shoes products (ID 301-308)
+    { id: 301, name: "Sneakers Casual Premium", category: "shoes", price: 329000, page: "pages/shoes.html", img: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/471a5872c7e24aa0856a04d3a08e357c~tplv-o3syd03w52-resize-webp:800:800.webp?dr=15584&t=555f072d&ps=933b5bde&shp=6ce186a1&shcp=e1be8f53&idc=my&from=1826719393" },
+    { id: 302, name: "Sepatu Formal Leather", category: "shoes", price: 489000, page: "pages/shoes.html", img: "https://www.ginomariani.com/cdn/shop/files/id-11134207-7rasg-m2c59rs5jn40f5.jpg?v=1757305113&width=1445" },
+    { id: 303, name: "Running Shoes Sport", category: "shoes", price: 429000, page: "pages/shoes.html", img: "https://m.media-amazon.com/images/I/71f3BmjCwtL.jpg" },
+    { id: 304, name: "Leather Boots Pria", category: "shoes", price: 659000, page: "pages/shoes.html", img: "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/N25135s3.jpg?im=Resize,width=750" },
+    { id: 305, name: "Sandal Casual Pria", category: "shoes", price: 129000, page: "pages/shoes.html", img: "https://down-id.img.susercontent.com/file/32f6e5d00d15b461e94c6bf40933942a" },
+    { id: 306, name: "Slip On Casual Shoes", category: "shoes", price: 279000, page: "pages/shoes.html", img: "https://image.made-in-china.com/202f0j00QCPfOVcUsWoT/Men-s-Foldable-Flat-Slip-on-Soft-Casual-Denim-Driving-Loafer-Shoes.webp" },
+    { id: 307, name: "Canvas Shoes Basic", category: "shoes", price: 199000, page: "pages/shoes.html", img: "https://i.ebayimg.com/images/g/afgAAOSwXKFnA7Ip/s-l1200.jpg" },
+    { id: 308, name: "Loafers Premium", category: "shoes", price: 359000, page: "pages/shoes.html", img: "https://dynamic.zacdn.com/xhMWUm1iL0paUfS7XUpYUvy-Jn0=/0x440/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/berrybenka-label-9821-7508215-1.jpg" }
+];
+</script>
+    <script src="../js/cart.js"></script>
+    
+    <!-- Script tambahan untuk handle redirect -->
+    <script>
+        // Fungsi untuk handle semua link ke beranda
+        function setupHomeRedirects() {
+            // Tangkap semua link yang menuju ke beranda
+            const homeLinks = document.querySelectorAll('a[href*="../index.html"]');
+            
+            homeLinks.forEach(link => {
+                // Jika link menggunakan href="#", ganti dengan fungsi redirect
+                if (link.getAttribute('href') === '#') {
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        redirectToHome();
+                    });
+                }
+            });
+            
+            // Tambahkan event listener untuk tombol-tombol khusus
+            document.querySelectorAll('.back-btn, .continue-shopping').forEach(btn => {
+                if (btn.tagName === 'BUTTON') {
+                    btn.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        redirectToHome();
+                    });
+                }
+            });
+        }
+        
+        // Fungsi redirect yang aman
+        function redirectToHome() {
+            console.log('Redirecting to home from cart page...');
+            
+            // Cek apakah di localhost atau server
+            const currentUrl = window.location.href;
+            const isLocalhost = currentUrl.includes('localhost') || currentUrl.includes('127.0.0.1');
+            
+            if (isLocalhost) {
+                // Untuk localhost
+                const baseUrl = window.location.origin;
+                const isInPagesFolder = currentUrl.includes('/pages/');
+                
+                if (isInPagesFolder) {
+                    // Jika di folder pages/, gunakan ../index.html
+                    window.location.href = '../index.html';
+                } else {
+                    // Jika tidak, gunakan absolute path
+                    window.location.href = baseUrl + '../index.html';
+                }
+            } else {
+                // Untuk production
+                window.location.href = '../index.html';
+            }
+        }
+        
+        // Jalankan saat halaman siap
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Cart page loaded successfully');
+            console.log('Current URL:', window.location.href);
+            
+            // Setup redirects
+            setupHomeRedirects();
+            
+            // Tambahkan fallback untuk tombol-tombol
+            const demoAddBtn = document.getElementById('demo-add-items');
+            if (demoAddBtn) {
+                demoAddBtn.addEventListener('click', function() {
+                    // Jika tombol demo gagal, beri feedback
+                    setTimeout(() => {
+                        if (document.querySelector('.empty-cart')) {
+                            alert('Fitur demo membutuhkan file cart.js yang benar.\nPastikan file cart.js ada di folder js/');
+                        }
+                    }, 1000);
+                });
+            }
+        });
+        
+        // Tangkap error jika ada
+        window.addEventListener('error', function(e) {
+            console.error('Error occurred:', e.message);
+            console.error('Error at:', e.filename, 'line:', e.lineno);
+        });
+    </script>
+</body>
+</html>
