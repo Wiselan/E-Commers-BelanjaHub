@@ -300,6 +300,38 @@ body {
     background: rgba(211, 84, 0, 0.1);
 }
 
+/* Tambahkan di style.css */
+.search-result-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--gradient-secondary);
+    color: white;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Highlight untuk produk yang dicari */
+[data-id].search-highlight {
+    border: 3px solid var(--orange) !important;
+    box-shadow: 0 0 20px rgba(230, 126, 34, 0.4) !important;
+    transform: translateY(-5px);
+    transition: all 0.3s ease;
+}
+
 /* Cart Icon */
 .cart-icon {
     position: relative;
