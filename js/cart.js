@@ -1,4 +1,4 @@
-// ../js/cart.js - File untuk halaman cart (VERSI DIPERBAIKI)
+// ../js/cart.js - File for cart page (IMPROVED VERSION)
 document.addEventListener('DOMContentLoaded', function() {
     // Load cart data
     loadCartItems();
@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Event Listeners
     setupEventListeners();
     
-    // Fungsi untuk setup event listeners
+    // Function to setup event listeners
     function setupEventListeners() {
         // Checkout button
         const checkoutBtn = document.getElementById('checkout-btn');
@@ -29,18 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Fungsi untuk handle checkout
+    // Function to handle checkout
     function handleCheckout() {
         const cart = getCart();
         if (cart.length === 0) {
-            showNotification('Keranjang belanja kosong!', 'error');
+            showNotification('Shopping cart is empty!', 'error');
             return;
         }
         
         // Check login
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
         if (!isLoggedIn) {
-            if (confirm('Anda harus login untuk melanjutkan pembayaran. Login sekarang?')) {
+            if (confirm('You must login to proceed with payment. Login now?')) {
                 window.location.href = 'login.html';
             }
             return;
@@ -50,11 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const shipping = cart.length > 0 ? 15000 : 0;
         const total = subtotal + shipping;
         
-        alert(`Fitur pembayaran akan diimplementasikan di sini.\n\nDetail Pembayaran:\n- Subtotal: Rp ${subtotal.toLocaleString('id-ID')}\n- Biaya Kirim: Rp ${shipping.toLocaleString('id-ID')}\n- Total: Rp ${total.toLocaleString('id-ID')}\n\nKlik OK untuk simulasi pembayaran berhasil.`);
+        alert(`Payment feature will be implemented here.\n\nPayment Details:\n- Subtotal: Rp ${subtotal.toLocaleString('id-ID')}\n- Shipping Cost: Rp ${shipping.toLocaleString('id-ID')}\n- Total: Rp ${total.toLocaleString('id-ID')}\n\nClick OK for successful payment simulation.`);
         
-        // Simulasi pembayaran berhasil
+        // Simulate successful payment
         localStorage.removeItem('cart');
-        showNotification('Pembayaran berhasil! Terima kasih telah berbelanja.');
+        showNotification('Payment successful! Thank you for shopping.');
         
         // Refresh cart
         setTimeout(() => {
@@ -62,22 +62,22 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 1000);
     }
     
-    // Fungsi untuk clear cart
+    // Function to clear cart
     function clearCart() {
         const cart = getCart();
         if (cart.length === 0) {
-            showNotification('Keranjang sudah kosong!', 'warning');
+            showNotification('Cart is already empty!', 'warning');
             return;
         }
         
-        if (confirm(`Apakah Anda yakin ingin mengosongkan keranjang belanja?\n\n${cart.length} item akan dihapus.`)) {
+        if (confirm(`Are you sure you want to empty the shopping cart?\n\n${cart.length} items will be removed.`)) {
             localStorage.removeItem('cart');
             loadCartItems();
-            showNotification('Keranjang berhasil dikosongkan!');
+            showNotification('Cart successfully emptied!');
         }
     }
     
-    // Fungsi untuk memuat item cart
+    // Function to load cart items
     function loadCartItems() {
         const cart = getCart();
         const cartItemsContainer = document.getElementById('cart-items');
@@ -85,47 +85,47 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!cartItemsContainer) return;
         
         if (cart.length === 0) {
-            // Tampilkan pesan keranjang kosong
+            // Show empty cart message
             cartItemsContainer.innerHTML = `
                 <div class="empty-cart">
                     <div class="empty-cart-icon">
                         <i class="fas fa-shopping-cart"></i>
                     </div>
-                    <h3>Keranjang Belanja Kosong</h3>
-                    <p>Belum ada barang di keranjang belanja Anda</p>
+                    <h3>Shopping Cart is Empty</h3>
+                    <p>There are no items in your shopping cart yet</p>
                     <div class="empty-cart-actions">
                         <a href="../index.html" class="btn btn-primary">
-                            <i class="fas fa-shopping-bag"></i> Lanjutkan Belanja
+                            <i class="fas fa-shopping-bag"></i> Continue Shopping
                         </a>
                     </div>
                 </div>
             `;
             
-            // Update summary dengan nilai 0
+            // Update summary with zero values
             updateCartSummary([]);
             
-            // Sembunyikan tombol clear cart
+            // Hide clear cart button
             const clearCartBtn = document.getElementById('clear-cart-btn');
             if (clearCartBtn) clearCartBtn.style.display = 'none';
             
             return;
         }
         
-        // Generate HTML untuk setiap item di cart
+        // Generate HTML for each cart item
         let cartHTML = '';
         cart.forEach(item => {
             const itemTotal = item.price * (item.quantity || 1);
             
-            // FUNGSI untuk mendapatkan URL gambar yang valid
+            // FUNCTION to get valid image URL
             const getValidImageUrl = () => {
-                // 1. Jika gambar dari item valid (URL eksternal)
+                // 1. If item image is valid (external URL)
                 if (item.image && 
                     (item.image.startsWith('http://') || item.image.startsWith('https://')) &&
                     !item.image.includes('baju.png')) {
                     return item.image;
                 }
                 
-                // 2. Coba cari gambar dari database produk global
+                // 2. Try to find image from global product database
                 if (window.productDatabase) {
                     const dbProduct = window.productDatabase.find(p => p.id === item.id);
                     if (dbProduct && dbProduct.img) {
@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }
                 
-                // 3. Gunakan placeholder dengan nama produk
+                // 3. Use placeholder with product name
                 const productName = item.name || 'Product';
                 const shortName = productName.substring(0, 15).replace(/\s+/g, '+');
                 return `https://placehold.co/200x200/001f3f/FFFFFF/png?text=${shortName}`;
@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <p class="item-price">Rp ${item.price.toLocaleString('id-ID')}</p>
                         <div class="item-actions">
                             <button class="btn-remove" onclick="removeItemFromCart(${item.id})">
-                                <i class="fas fa-trash"></i> Hapus
+                                <i class="fas fa-trash"></i> Remove
                             </button>
                         </div>
                     </div>
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cartItemsContainer.innerHTML = cartHTML;
         updateCartSummary(cart);
         
-        // Tampilkan tombol clear cart
+        // Show clear cart button
         const clearCartBtn = document.getElementById('clear-cart-btn');
         if (clearCartBtn) {
             clearCartBtn.style.display = 'block';
@@ -188,12 +188,12 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // ======================
-// FUNGSI GLOBAL UNTUK CART
+// GLOBAL FUNCTIONS FOR CART
 // ======================
 
-// Fungsi untuk menghapus item dari cart
+// Function to remove item from cart
 function removeItemFromCart(productId) {
-    if (!confirm('Hapus item ini dari keranjang?')) return;
+    if (!confirm('Remove this item from cart?')) return;
     
     let cart = getCart();
     const itemIndex = cart.findIndex(item => item.id == productId);
@@ -208,11 +208,11 @@ function removeItemFromCart(productId) {
             loadCartItems();
         }
         
-        showNotification(`${itemName} dihapus dari keranjang!`, 'success');
+        showNotification(`${itemName} removed from cart!`, 'success');
     }
 }
 
-// Fungsi untuk mengupdate quantity
+// Function to update quantity
 function updateItemQuantity(productId, newQuantity) {
     newQuantity = parseInt(newQuantity);
     
@@ -228,7 +228,7 @@ function updateItemQuantity(productId, newQuantity) {
         item.quantity = newQuantity;
         saveCart(cart);
         
-        // Update tampilan langsung
+        // Update display directly
         const itemElement = document.querySelector(`.cart-item[data-id="${productId}"]`);
         if (itemElement) {
             const itemTotal = item.price * item.quantity;
@@ -248,7 +248,7 @@ function updateItemQuantity(productId, newQuantity) {
             updateCartSummary(cart);
         }
         
-        showNotification('Jumlah item diperbarui!', 'success');
+        showNotification('Item quantity updated!', 'success');
     }
 }
 
@@ -294,7 +294,7 @@ function updateCartSummary(cart) {
     const total = subtotal + shipping;
     const itemCount = cart.reduce((sum, item) => sum + (item.quantity || 1), 0);
     
-    // Update semua elemen
+    // Update all elements
     const elements = {
         'item-count': `${itemCount} ${itemCount === 1 ? 'item' : 'items'}`,
         'subtotal': `Rp ${subtotal.toLocaleString('id-ID')}`,
@@ -310,17 +310,17 @@ function updateCartSummary(cart) {
         }
     }
     
-    // Update tombol checkout
+    // Update checkout button
     const checkoutBtn = document.getElementById('checkout-btn');
     if (checkoutBtn) {
         checkoutBtn.disabled = cart.length === 0;
-        checkoutBtn.textContent = cart.length === 0 ? 'Keranjang Kosong' : `Bayar Rp ${total.toLocaleString('id-ID')}`;
+        checkoutBtn.textContent = cart.length === 0 ? 'Cart is Empty' : `Pay Rp ${total.toLocaleString('id-ID')}`;
     }
 }
 
-// Fungsi untuk show notification
+// Function to show notification
 function showNotification(message, type = 'success') {
-    // Cek jika sudah ada notification
+    // Check if notification already exists
     const existingNotification = document.querySelector('.cart-notification');
     if (existingNotification) {
         existingNotification.remove();
@@ -337,13 +337,13 @@ function showNotification(message, type = 'success') {
     
     document.body.appendChild(notification);
     
-    // Animasi masuk
+    // Entrance animation
     setTimeout(() => {
         notification.style.opacity = '1';
         notification.style.transform = 'translateY(0)';
     }, 10);
     
-    // Hapus setelah 3 detik
+    // Remove after 3 seconds
     setTimeout(() => {
         notification.style.opacity = '0';
         notification.style.transform = 'translateY(-20px)';
@@ -353,13 +353,13 @@ function showNotification(message, type = 'success') {
     }, 3000);
 }
 
-// Fungsi untuk menambahkan ke cart (untuk demo) - DIPERBAIKI
+// Function to add to cart (for demo) - IMPROVED
 window.addToCart = function(productId, productName, productPrice, productImage) {
     // Check login status
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     
     if (!isLoggedIn) {
-        if (confirm('Anda harus login terlebih dahulu. Login sekarang?')) {
+        if (confirm('You must login first. Login now?')) {
             window.location.href = 'login.html';
         }
         return false;
@@ -367,7 +367,7 @@ window.addToCart = function(productId, productName, productPrice, productImage) 
     
     let cart = getCart();
     
-    // Validasi dan perbaiki URL gambar
+    // Validate and fix image URL
     let validImage = productImage;
     if (!validImage || validImage.includes('baju.png')) {
         const shortName = productName ? productName.substring(0, 15).replace(/\s+/g, '+') : 'Product';
@@ -398,11 +398,11 @@ window.addToCart = function(productId, productName, productPrice, productImage) 
         image: validImage
     });
     
-    // Refresh display jika di halaman cart
+    // Refresh display if on cart page
     if (window.location.pathname.includes('cart.html')) {
         document.dispatchEvent(new Event('DOMContentLoaded'));
     }
     
-    showNotification(`${productName} berhasil ditambahkan!`, 'success');
+    showNotification(`${productName} successfully added!`, 'success');
     return true;
 }

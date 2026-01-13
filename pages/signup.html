@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Daftar - BelanjaHub</title>
+    <title>Sign Up - BelanjaHub</title>
     <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
@@ -13,20 +13,20 @@
             <div class="auth-card">
                 <div class="auth-header">
                     <h1><i class="fas fa-shopping-bag"></i> BelanjaHub</h1>
-                    <p>Buat akun baru untuk mulai berbelanja</p>
+                    <p>Create a new account to start shopping</p>
                 </div>
                 
                 <form id="signupForm" class="auth-form">
-                    <h2>Daftar Akun Baru</h2>
+                    <h2>Create New Account</h2>
                     
                     <div class="input-group">
                         <label for="name">
-                            <i class="fas fa-user"></i> Nama Lengkap</label>
+                            <i class="fas fa-user"></i> Full Name</label>
                         <input 
                             type="text" 
                             id="name" 
                             name="name" 
-                            placeholder="Masukkan nama lengkap" 
+                            placeholder="Enter your full name" 
                             required/>
                         <span class="error-message" id="nameError"></span>
                     </div>
@@ -39,7 +39,7 @@
                             type="email" 
                             id="email" 
                             name="email" 
-                            placeholder="contoh@email.com" 
+                            placeholder="example@email.com" 
                             required 
                         />
                         <span class="error-message" id="emailError"></span>
@@ -53,7 +53,7 @@
                             type="password" 
                             id="password" 
                             name="password" 
-                            placeholder="Minimal 6 karakter" 
+                            placeholder="Minimum 6 characters" 
                             required 
                             minlength="6"
                         />
@@ -62,13 +62,13 @@
                     
                     <div class="input-group">
                         <label for="confirmPassword">
-                            <i class="fas fa-lock"></i> Konfirmasi Password
+                            <i class="fas fa-lock"></i> Confirm Password
                         </label>
                         <input 
                             type="password" 
                             id="confirmPassword" 
                             name="confirmPassword" 
-                            placeholder="Ketik ulang password" 
+                            placeholder="Retype your password" 
                             required 
                             minlength="6"
                         />
@@ -78,49 +78,49 @@
                     <div class="form-options">
                         <label class="terms">
                             <input type="checkbox" id="agreeTerms" required>
-                            <span>Saya setuju dengan <a href="#" class="terms-link">Syarat & Ketentuan</a></span>
+                            <span>I agree to the <a href="#" class="terms-link">Terms & Conditions</a></span>
                         </label>
                     </div>
                     
                     <div class="form-actions">
                         <button type="submit" class="btn primary" id="signupBtn">
-                            <span id="btnText">Daftar Sekarang</span>
+                            <span id="btnText">Sign Up Now</span>
                             <div id="btnLoader" class="btn-loader"></div>
                         </button>
                         <a href="../index.html" class="btn ghost">
-                            <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+                            <i class="fas fa-arrow-left"></i> Back to Home
                         </a>
                     </div>
                     
                     <div class="auth-divider">
-                        <span>atau</span>
+                        <span>or</span>
                     </div>
                     
                     <p class="auth-toggle">
-                        Sudah punya akun? 
-                        <a href="login.html" class="toggle-link">Login di sini</a>
+                        Already have an account? 
+                        <a href="login.html" class="toggle-link">Login here</a>
                     </p>
                 </form>
             </div>
         </div>
     </main>
 
-    <!-- Pop-up untuk registrasi berhasil -->
+    <!-- Pop-up for successful registration -->
     <div class="popup-overlay" id="successPopup">
         <div class="popup">
             <div class="popup-icon">
                 <i class="fas fa-check-circle"></i>
             </div>
-            <h3>Pendaftaran Berhasil!</h3>
-            <p id="welcomeMessage">Akun Anda telah berhasil dibuat.</p>
+            <h3>Registration Successful!</h3>
+            <p id="welcomeMessage">Your account has been successfully created.</p>
             <button class="popup-btn primary" id="goToLogin">
-                <i class="fas fa-sign-in-alt"></i> Login Sekarang
+                <i class="fas fa-sign-in-alt"></i> Login Now
             </button>
         </div>
     </div>
 
     <script>
-        // Mengambil elemen form dan pop-up
+        // Get form and pop-up elements
         const signupForm = document.getElementById('signupForm');
         const successPopup = document.getElementById('successPopup');
         const goToLoginBtn = document.getElementById('goToLogin');
@@ -129,7 +129,7 @@
         const btnLoader = document.getElementById('btnLoader');
         const welcomeMessage = document.getElementById('welcomeMessage');
         
-        // Elemen input
+        // Input elements
         const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
         const passwordInput = document.getElementById('password');
@@ -141,46 +141,46 @@
         const passwordError = document.getElementById('passwordError');
         const confirmPasswordError = document.getElementById('confirmPasswordError');
         
-        // Fungsi validasi email
+        // Email validation function
         function isValidEmail(email) {
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             return emailRegex.test(email);
         }
         
-        // Fungsi untuk menampilkan error
+        // Function to show error
         function showError(inputElement, errorElement, message) {
             inputElement.classList.add('input-error');
             errorElement.textContent = message;
             errorElement.style.display = 'block';
         }
         
-        // Fungsi untuk menghapus error
+        // Function to hide error
         function hideError(inputElement, errorElement) {
             inputElement.classList.remove('input-error');
             errorElement.style.display = 'none';
         }
         
-        // Fungsi untuk menampilkan loading
+        // Function to show loading
         function showLoading() {
             btnText.style.opacity = '0.5';
             btnLoader.style.display = 'block';
             signupBtn.disabled = true;
         }
         
-        // Fungsi untuk menghapus loading
+        // Function to hide loading
         function hideLoading() {
             btnText.style.opacity = '1';
             btnLoader.style.display = 'none';
             signupBtn.disabled = false;
         }
         
-        // Validasi real-time
+        // Real-time validation
         nameInput.addEventListener('blur', function() {
             const name = nameInput.value.trim();
             if (!name) {
-                showError(nameInput, nameError, 'Nama harus diisi');
+                showError(nameInput, nameError, 'Name is required');
             } else if (name.length < 3) {
-                showError(nameInput, nameError, 'Nama minimal 3 karakter');
+                showError(nameInput, nameError, 'Name must be at least 3 characters');
             } else {
                 hideError(nameInput, nameError);
             }
@@ -189,15 +189,15 @@
         emailInput.addEventListener('blur', function() {
             const email = emailInput.value.trim();
             if (!email) {
-                showError(emailInput, emailError, 'Email harus diisi');
+                showError(emailInput, emailError, 'Email is required');
             } else if (!isValidEmail(email)) {
-                showError(emailInput, emailError, 'Format email tidak valid');
+                showError(emailInput, emailError, 'Invalid email format');
             } else {
-                // Cek apakah email sudah terdaftar
+                // Check if email already exists
                 const users = JSON.parse(localStorage.getItem('users') || '[]');
                 const emailExists = users.some(user => user.email === email);
                 if (emailExists) {
-                    showError(emailInput, emailError, 'Email sudah terdaftar');
+                    showError(emailInput, emailError, 'Email already registered');
                 } else {
                     hideError(emailInput, emailError);
                 }
@@ -207,9 +207,9 @@
         passwordInput.addEventListener('blur', function() {
             const password = passwordInput.value;
             if (!password) {
-                showError(passwordInput, passwordError, 'Password harus diisi');
+                showError(passwordInput, passwordError, 'Password is required');
             } else if (password.length < 6) {
-                showError(passwordInput, passwordError, 'Password minimal 6 karakter');
+                showError(passwordInput, passwordError, 'Password must be at least 6 characters');
             } else {
                 hideError(passwordInput, passwordError);
             }
@@ -220,82 +220,82 @@
             const confirmPassword = confirmPasswordInput.value;
             
             if (!confirmPassword) {
-                showError(confirmPasswordInput, confirmPasswordError, 'Konfirmasi password harus diisi');
+                showError(confirmPasswordInput, confirmPasswordError, 'Please confirm your password');
             } else if (password !== confirmPassword) {
-                showError(confirmPasswordInput, confirmPasswordError, 'Password tidak cocok');
+                showError(confirmPasswordInput, confirmPasswordError, 'Passwords do not match');
             } else {
                 hideError(confirmPasswordInput, confirmPasswordError);
             }
         });
         
-        // Event listener untuk form submission
+        // Event listener for form submission
         signupForm.addEventListener('submit', async function(event) {
             event.preventDefault();
             
             let isValid = true;
             
-            // Validasi nama
+            // Validate name
             const name = nameInput.value.trim();
             if (!name) {
-                showError(nameInput, nameError, 'Nama harus diisi');
+                showError(nameInput, nameError, 'Name is required');
                 isValid = false;
             } else if (name.length < 3) {
-                showError(nameInput, nameError, 'Nama minimal 3 karakter');
+                showError(nameInput, nameError, 'Name must be at least 3 characters');
                 isValid = false;
             }
             
-            // Validasi email
+            // Validate email
             const email = emailInput.value.trim();
             if (!email) {
-                showError(emailInput, emailError, 'Email harus diisi');
+                showError(emailInput, emailError, 'Email is required');
                 isValid = false;
             } else if (!isValidEmail(email)) {
-                showError(emailInput, emailError, 'Format email tidak valid');
+                showError(emailInput, emailError, 'Invalid email format');
                 isValid = false;
             } else {
-                // Cek email unik
+                // Check unique email
                 const users = JSON.parse(localStorage.getItem('users') || '[]');
                 const emailExists = users.some(user => user.email === email);
                 if (emailExists) {
-                    showError(emailInput, emailError, 'Email sudah terdaftar');
+                    showError(emailInput, emailError, 'Email already registered');
                     isValid = false;
                 }
             }
             
-            // Validasi password
+            // Validate password
             const password = passwordInput.value;
             if (!password) {
-                showError(passwordInput, passwordError, 'Password harus diisi');
+                showError(passwordInput, passwordError, 'Password is required');
                 isValid = false;
             } else if (password.length < 6) {
-                showError(passwordInput, passwordError, 'Password minimal 6 karakter');
+                showError(passwordInput, passwordError, 'Password must be at least 6 characters');
                 isValid = false;
             }
             
-            // Validasi konfirmasi password
+            // Validate confirm password
             const confirmPassword = confirmPasswordInput.value;
             if (!confirmPassword) {
-                showError(confirmPasswordInput, confirmPasswordError, 'Konfirmasi password harus diisi');
+                showError(confirmPasswordInput, confirmPasswordError, 'Please confirm your password');
                 isValid = false;
             } else if (password !== confirmPassword) {
-                showError(confirmPasswordInput, confirmPasswordError, 'Password tidak cocok');
+                showError(confirmPasswordInput, confirmPasswordError, 'Passwords do not match');
                 isValid = false;
             }
             
-            // Validasi terms
+            // Validate terms
             const agreeTerms = document.getElementById('agreeTerms').checked;
             if (!agreeTerms) {
-                alert('Anda harus menyetujui Syarat & Ketentuan');
+                alert('You must agree to the Terms & Conditions');
                 isValid = false;
             }
             
             if (isValid) {
                 showLoading();
                 
-                // Simulasi delay
+                // Simulate delay
                 await new Promise(resolve => setTimeout(resolve, 1500));
                 
-                // Simpan user ke localStorage
+                // Save user to localStorage
                 const users = JSON.parse(localStorage.getItem('users') || '[]');
                 const newUser = {
                     id: Date.now(),
@@ -308,22 +308,22 @@
                 users.push(newUser);
                 localStorage.setItem('users', JSON.stringify(users));
                 
-                // Auto login setelah registrasi
+                // Auto login after registration
                 localStorage.setItem('isLoggedIn', 'true');
                 localStorage.setItem('userEmail', email);
                 localStorage.setItem('userName', name);
                 
                 // Update welcome message
-                welcomeMessage.textContent = `Selamat bergabung, ${name}!`;
+                welcomeMessage.textContent = `Welcome, ${name}!`;
                 
-                // Tampilkan pop-up sukses
+                // Show success pop-up
                 successPopup.style.display = 'flex';
                 
                 hideLoading();
             }
         });
         
-        // Event listener untuk tombol "Login Sekarang"
+        // Event listener for "Login Now" button
         goToLoginBtn.addEventListener('click', function() {
             window.location.href = '../index.html';
         });
@@ -331,10 +331,10 @@
         // Terms link
         document.querySelector('.terms-link')?.addEventListener('click', function(e) {
             e.preventDefault();
-            alert('Syarat & Ketentuan:\n\n1. Anda bertanggung jawab atas keamanan akun\n2. Data pribadi akan dilindungi\n3. Tidak diperbolehkan melakukan kecurangan\n\n(Catatan: Ini hanya contoh)');
+            alert('Terms & Conditions:\n\n1. You are responsible for account security\n2. Personal data will be protected\n3. Fraud is not allowed\n\n(Note: This is just an example)');
         });
         
-        // Auto-focus ke name input
+        // Auto-focus to name input
         nameInput.focus();
     </script>
 </body>

@@ -1,6 +1,6 @@
 // chat.js - Fix Double Message Issue
 document.addEventListener('DOMContentLoaded', function() {
-    // Cek apakah user sudah login
+    // Check if user is logged in
     function isUserLoggedIn() {
         const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true' || 
                           sessionStorage.getItem('isLoggedIn') === 'true';
@@ -10,24 +10,24 @@ document.addEventListener('DOMContentLoaded', function() {
         return isLoggedIn || (userData && userData.isLoggedIn);
     }
     
-    // Cek jika di halaman login/signup
+    // Check if on login/signup page
     function isAuthPage() {
         const currentPath = window.location.pathname;
         return currentPath.includes('login.html') || currentPath.includes('signup.html');
     }
     
-    // Jika user belum login atau di halaman auth, sembunyikan chat
+    // If user not logged in or on auth page, hide chat
     if (!isUserLoggedIn() || isAuthPage()) {
         return;
     }
     
-    // Cek apakah chat sudah diinisialisasi
+    // Check if chat is already initialized
     if (window.chatInitialized) {
-        console.log('Chat sudah diinisialisasi sebelumnya');
+        console.log('Chat already initialized previously');
         return;
     }
     
-    // Inisialisasi Live Chat
+    // Initialize Live Chat
     initializeLiveChat();
     window.chatInitialized = true;
     
@@ -46,12 +46,12 @@ document.addEventListener('DOMContentLoaded', function() {
         
         let isChatOpen = false;
         let unreadMessages = 0;
-        let isProcessing = false; // Flag untuk cek jika sedang memproses pesan
+        let isProcessing = false; // Flag to check if processing message
         
-        // Tampilkan widget chat
+        // Show chat widget
         chatWidget.style.display = 'block';
         
-        // Hapus semua event listener sebelumnya (jika ada)
+        // Remove all previous event listeners (if any)
         const newToggle = chatToggle.cloneNode(true);
         chatToggle.parentNode.replaceChild(newToggle, chatToggle);
         
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
             sendButton.parentNode.replaceChild(newSendButton, sendButton);
         }
         
-        // Event Listeners - hanya satu kali
+        // Event Listeners - only once
         newToggle.addEventListener('click', toggleChat);
         
         if (chatClose) {
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
         
-        // Quick replies - Hapus event listener lama dulu
+        // Quick replies - Remove old event listeners first
         quickReplies.forEach(button => {
             const newButton = button.cloneNode(true);
             button.parentNode.replaceChild(newButton, button);
@@ -95,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
         
-        // Close chat jika klik di luar
+        // Close chat if click outside
         document.addEventListener('click', function(e) {
             if (isChatOpen && chatContainer && 
                 !chatContainer.contains(e.target) && 
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
         
-        // Load chat history dari sessionStorage
+        // Load chat history from sessionStorage
         loadChatHistory();
         
         function toggleChat() {
@@ -142,32 +142,32 @@ document.addEventListener('DOMContentLoaded', function() {
             const message = chatInput.value.trim();
             
             if (message) {
-                isProcessing = true; // Set flag sedang memproses
+                isProcessing = true; // Set processing flag
                 
-                // Simpan ke sessionStorage
+                // Save to sessionStorage
                 saveToChatHistory(message, 'user');
                 
-                // Tampilkan di chat user
+                // Display in user chat
                 addMessage(message, 'user');
                 chatInput.value = '';
                 
-                // Auto-reply bot setelah 1 detik
+                // Auto-reply bot after 1 second
                 setTimeout(() => {
                     const responses = [
-                        "Terima kasih pesannya! Tim kami akan membalas secepatnya.",
-                        "Pertanyaan Anda telah tercatat. Mohon tunggu balasan dari CS kami.",
-                        "Untuk informasi produk, silakan cek halaman detail produk ya!",
-                        "Diskon sedang berlangsung hingga 60% untuk produk pilihan!",
-                        "Pengiriman biasanya 2-5 hari kerja untuk Jabodetabek.",
-                        "Apakah ada hal lain yang bisa saya bantu?"
+                        "Thank you for your message! Our team will reply as soon as possible.",
+                        "Your question has been recorded. Please wait for a reply from our CS.",
+                        "For product information, please check the product details page!",
+                        "Discounts are ongoing up to 60% for selected products!",
+                        "Shipping usually takes 2-5 business days for Jabodetabek area.",
+                        "Is there anything else I can help you with?"
                     ];
                     const randomResponse = responses[Math.floor(Math.random() * responses.length)];
                     
-                    // Simpan balasan bot ke sessionStorage
+                    // Save bot reply to sessionStorage
                     saveToChatHistory(randomResponse, 'bot');
                     addMessage(randomResponse, 'bot');
                     
-                    // Jika chat tertutup, tambah badge
+                    // If chat is closed, add badge
                     if (!isChatOpen) {
                         unreadMessages++;
                         updateBadge();
@@ -183,24 +183,24 @@ document.addEventListener('DOMContentLoaded', function() {
             
             isProcessing = true;
             
-            // Simpan ke sessionStorage
+            // Save to sessionStorage
             saveToChatHistory(question, 'user');
             addMessage(question, 'user');
             
             setTimeout(() => {
                 let response;
                 
-                if (question.includes('diskon')) {
-                    response = "Ya! Saat ini ada diskon hingga 60% untuk koleksi musiman. Cek halaman produk untuk detailnya!";
-                } else if (question.includes('pengiriman')) {
-                    response = "Pengiriman memakan waktu 2-5 hari kerja untuk Jabodetabek dan 3-7 hari untuk luar kota. Gratis ongkir untuk pembelian di atas Rp 300.000!";
-                } else if (question.includes('bayar')) {
-                    response = "Kami menerima: Transfer Bank (BCA, Mandiri, BNI), E-Wallet (OVO, Gopay, Dana), dan COD (Cash on Delivery).";
+                if (question.includes('discount')) {
+                    response = "Yes! Currently there are discounts up to 60% for seasonal collections. Check the product page for details!";
+                } else if (question.includes('shipping')) {
+                    response = "Shipping takes 2-5 business days for Jabodetabek and 3-7 days for other cities. Free shipping for purchases above Rp 300,000!";
+                } else if (question.includes('payment')) {
+                    response = "We accept: Bank Transfer (BCA, Mandiri, BNI), E-Wallet (OVO, Gopay, Dana), and COD (Cash on Delivery).";
                 } else {
-                    response = "Terima kasih! CS kami akan segera menghubungi Anda.";
+                    response = "Thank you! Our CS team will contact you shortly.";
                 }
                 
-                // Simpan balasan bot ke sessionStorage
+                // Save bot reply to sessionStorage
                 saveToChatHistory(response, 'bot');
                 addMessage(response, 'bot');
                 
@@ -216,11 +216,11 @@ document.addEventListener('DOMContentLoaded', function() {
         function addMessage(text, sender) {
             if (!chatMessages) return;
             
-            // Cek apakah pesan sama sudah ada (untuk mencegah duplikasi)
+            // Check if same message already exists (to prevent duplication)
             const existingMessages = chatMessages.querySelectorAll('.message-text');
             for (let msg of existingMessages) {
                 if (msg.textContent === text) {
-                    // Pesan sudah ada, skip
+                    // Message already exists, skip
                     return;
                 }
             }
@@ -229,12 +229,12 @@ document.addEventListener('DOMContentLoaded', function() {
             messageDiv.className = `message ${sender}`;
             
             const now = new Date();
-            const time = now.toLocaleTimeString('id-ID', { 
+            const time = now.toLocaleTimeString('en-US', { 
                 hour: '2-digit', 
                 minute: '2-digit' 
             });
             
-            let senderName = sender === 'user' ? 'Anda' : 'BelanjaHub Bot';
+            let senderName = sender === 'user' ? 'You' : 'BelanjaHub Bot';
             let senderIcon = sender === 'user' ? 'fas fa-user' : 'fas fa-robot';
             
             messageDiv.innerHTML = `
@@ -263,10 +263,10 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         function saveToChatHistory(message, sender) {
-            // Gunakan sessionStorage
+            // Use sessionStorage
             const chatHistory = JSON.parse(sessionStorage.getItem('belanjahub_chat') || '[]');
             
-            // Cek apakah pesan sudah ada untuk mencegah duplikasi
+            // Check if message already exists to prevent duplication
             const isDuplicate = chatHistory.some(item => 
                 item.message === message && item.sender === sender
             );
@@ -278,7 +278,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     timestamp: new Date().toISOString()
                 });
                 
-                // Simpan maks 50 pesan terakhir
+                // Save only last 50 messages
                 if (chatHistory.length > 50) {
                     chatHistory.splice(0, chatHistory.length - 50);
                 }
@@ -290,15 +290,15 @@ document.addEventListener('DOMContentLoaded', function() {
         function loadChatHistory() {
             if (!chatMessages) return;
             
-            // Load dari sessionStorage
+            // Load from sessionStorage
             const chatHistory = JSON.parse(sessionStorage.getItem('belanjahub_chat') || '[]');
             
-            // Hapus pesan default jika ada history
+            // Remove default message if there is history
             if (chatHistory.length > 0) {
                 chatMessages.innerHTML = '';
             }
             
-            // Filter untuk menghapus duplikat sebelum menampilkan
+            // Filter to remove duplicates before displaying
             const uniqueHistory = [];
             const seenMessages = new Set();
             
@@ -310,7 +310,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
-            // Tampilkan pesan unik
+            // Display unique messages
             uniqueHistory.forEach(item => {
                 addMessage(item.message, item.sender);
             });

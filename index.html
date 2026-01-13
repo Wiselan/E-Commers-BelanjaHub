@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <meta name="description" content="BelanjaHub - Toko Online Fashion Terlengkap dengan Kualitas Terbaik dan Harga Terjangkau">
-    <title>BelanjaHub - Toko Online Fashion</title>
+    <meta name="description" content="BelanjaHub - Complete Online Fashion Store with Best Quality and Affordable Prices">
+    <title>BelanjaHub - Online Fashion Store</title>
     
-    <!-- PERBAIKAN PATH CSS: gunakan ../css/style.css -->
+    <!-- FIXED CSS PATH: use ../css/style.css -->
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/chat.css" />
     
@@ -15,14 +15,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome untuk icon -->
+    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
     <header class="navbar">
         <div class="container">
             <a class="brand" href="index.html" aria-label="BelanjaHub Home">
-                <img src="../img/logo.png" alt="Logo BelanjaHub" class="logo" />
+                <img src="../img/logo.png" alt="BelanjaHub Logo" class="logo" />
                 <span class="brand-text">BelanjaHub</span>
             </a>
             
@@ -34,22 +34,22 @@
                 <a href="accessoris.html" class="nav-link">Accessories</a>
                 <a href="shoes.html" class="nav-link">Shoes</a>
             </nav>
-            <!-- Hapus action ke Google, ganti jadi # -->
+            <!-- Removed Google action, changed to # -->
             <form id="searchForm" class="search" action="#" method="get" role="search">
                 <div class="search-container">
                     <input 
                         id="searchInput" 
                         name="q" 
                         type="search" 
-                        placeholder="Cari produk fashion..." 
-                        aria-label="Cari produk"
+                        placeholder="Search fashion products..." 
+                        aria-label="Search products"
                         autocomplete="off"
                     />
                     <button type="submit" class="search-icon" aria-label="Search">🔍</button>
                 </div>
             </form>
             
-            <!-- Cart Icon dengan count -->
+            <!-- Cart Icon with count -->
             <div class="cart-icon" id="cartIcon" role="button" aria-label="Cart" tabindex="0">
                 <a href="/pages/cart.html" class="cart-link">
                     <span class="cart-icon-symbol" aria-hidden="true">
@@ -76,277 +76,279 @@
         <section class="hero-section" aria-label="Hero Banner">
             <div class="hero-container">
                 <div class="hero-banner">
-                    <!-- PERBAIKAN: Gunakan gambar yang tersedia -->
-                    <img src="../img/banner.png" alt="Fashion Collection - Belanja Fashion Terbaru dengan Diskon Spesial" class="hero-image" />
+                    <!-- FIXED: Use available image -->
+                    <img src="../img/banner.png" alt="Fashion Collection - Shop Latest Fashion with Special Discounts" class="hero-image" />
                     <div class="hero-content">
-                        <h1 class="hero-title">Koleksi Fashion Terbaru 2025</h1>
-                        <p class="hero-subtitle">Diskon Hingga 70% untuk Produk Pilihan</p>
-                        <p class="hero-description">Temukan gaya terbaikmu dengan kualitas premium dan harga terjangkau</p>
-                        <a href="clothing.html" class="hero-btn">Jelajahi Koleksi</a>
+                        <h1 class="hero-title">Latest Fashion Collection 2025</h1>
+                        <p class="hero-subtitle">Up to 70% Discount on Selected Products</p>
+                        <p class="hero-description">Discover your best style with premium quality and affordable prices</p>
+                        <a href="clothing.html" class="hero-btn">Explore Collection</a>
                     </div>
                 </div>
             </div>
         </section>
 
-           <!-- Ganti dengan featured products atau banner lain -->
-    <section class="featured-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Featured Collections</h2>
-                <p class="section-subtitle">Koleksi terbaik dari BelanjaHub</p>
-            </div>
-            <div class="featured-grid">
-    <!-- Clothing Category -->
-    <a href="clothing.html" class="featured-category">
-        <img src="../img/baju.png" alt="Koleksi Pakaian Pria">
-        <div class="view-overlay">
-            <span>Lihat Koleksi →</span>
-        </div>
-        <h3>Pakaian Pria</h3>
-        <p>Kaos, kemeja, jaket, dan lainnya</p>
-    </a>
-    
-    <!-- Accessories Category -->
-    <a href="accessoris.html" class="featured-category">
-        <img src="../img/baju.png" alt="Koleksi Aksesoris">
-        <div class="view-overlay">
-            <span>Lihat Koleksi →</span>
-        </div>
-        <h3>Aksesoris Fashion</h3>
-        <p>Tas, jam, topi, dan aksesoris lainnya</p>
-    </a>
-    
-    <!-- Shoes Category -->
-    <a href="shoes.html" class="featured-category">
-        <img src="../img/baju.png" alt="Koleksi Sepatu">
-        <div class="view-overlay">
-            <span>Lihat Koleksi →</span>
-        </div>
-        <h3>Sepatu & Footwear</h3>
-        <p>Sneakers, formal shoes, boots, dan lainnya</p>
-    </a>
-</div>
-        </div>
-    </section>
-         <!-- Footer Section -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <!-- Company Info -->
-                <div class="footer-section">
-                    <div class="footer-brand">
-                        <img src="../img/logo.png" alt="BelanjaHub Logo" class="footer-logo">
-                        <span class="footer-brand-text">BelanjaHub</span>
-                    </div>
-                    <p class="footer-description">
-                        Toko online fashion terlengkap dengan kualitas terbaik dan harga terjangkau. 
-                        Temukan gaya terbaikmu bersama kami.
-                    </p>
-                    <div class="social-links">
-                        <a href="#" class="social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="TikTok">
-                            <i class="fab fa-tiktok"></i>
-                        </a>
-                        <a href="#" class="social-link" aria-label="YouTube">
-                            <i class="fab fa-youtube"></i>
-                        </a>
-                    </div>
+        <!-- Replaced with featured products or other banner -->
+        <section class="featured-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">Featured Collections</h2>
+                    <p class="section-subtitle">Best collections from BelanjaHub</p>
                 </div>
-
-                <!-- Quick Links -->
-                <div class="footer-section">
-                    <h3 class="footer-title">Tautan Cepat</h3>
-                    <ul class="footer-links">
-                        <li><a href="index.html">Beranda</a></li>
-                        <li><a href="clothing.html">Pakaian</a></li>
-                        <li><a href="accessoris.html">Aksesoris</a></li>
-                        <li><a href="shoes.html">Sepatu</a></li>
-                        <li><a href="/pages/cart.html">Keranjang Belanja</a></li>
-                        <li><a href="/pages/login.html">Akun Saya</a></li>
-                    </ul>
-                </div>
-
-                <!-- Customer Service -->
-                <div class="footer-section">
-                    <h3 class="footer-title">Layanan Pelanggan</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Bantuan & FAQ</a></li>
-                        <li><a href="#">Cara Berbelanja</a></li>
-                        <li><a href="#">Pengiriman</a></li>
-                        <li><a href="#">Pengembalian</a></li>
-                        <li><a href="#">Syarat & Ketentuan</a></li>
-                        <li><a href="#">Kebijakan Privasi</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contact Info -->
-                <div class="footer-section">
-                    <h3 class="footer-title">Kontak Kami</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Jl. Fashion No. 123, Jakarta Pusat, Indonesia</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>(021) 1234-5678</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>info@belanjahub.com</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>Senin - Jumat: 09:00 - 21:00 WIB</span>
-                        </li>
-                    </ul>
+                <div class="featured-grid">
+                    <!-- Clothing Category -->
+                    <a href="clothing.html" class="featured-category">
+                        <img src="../img/baju.png" alt="Men's Clothing Collection">
+                        <div class="view-overlay">
+                            <span>View Collection →</span>
+                        </div>
+                        <h3>Men's Clothing</h3>
+                        <p>T-shirts, shirts, jackets, and more</p>
+                    </a>
                     
-                    <!-- Newsletter Subscription -->
-                    <div class="newsletter">
-                        <h4>Berlangganan Newsletter</h4>
-                        <p>Dapatkan promo dan produk terbaru langsung di email Anda</p>
-                        <form class="newsletter-form">
-                            <input type="email" placeholder="Masukkan email Anda" required>
-                            <button type="submit">Subscribe</button>
-                        </form>
-                    </div>
+                    <!-- Accessories Category -->
+                    <a href="accessoris.html" class="featured-category">
+                        <img src="../img/baju.png" alt="Accessories Collection">
+                        <div class="view-overlay">
+                            <span>View Collection →</span>
+                        </div>
+                        <h3>Fashion Accessories</h3>
+                        <p>Bags, watches, hats, and other accessories</p>
+                    </a>
+                    
+                    <!-- Shoes Category -->
+                    <a href="shoes.html" class="featured-category">
+                        <img src="../img/baju.png" alt="Shoes Collection">
+                        <div class="view-overlay">
+                            <span>View Collection →</span>
+                        </div>
+                        <h3>Shoes & Footwear</h3>
+                        <p>Sneakers, formal shoes, boots, and more</p>
+                    </a>
                 </div>
             </div>
+        </section>
 
-            <!-- Copyright -->
-            <div class="footer-bottom">
-                <div class="payment-methods">
-                    <span>Metode Pembayaran:</span>
-                    <div class="payment-icons">
-                        <i class="fab fa-cc-visa" title="Visa"></i>
-                        <i class="fab fa-cc-mastercard" title="Mastercard"></i>
-                        <i class="fab fa-cc-paypal" title="PayPal"></i>
-                        <i class="fas fa-credit-card" title="Credit Card"></i>
-                        <i class="fas fa-university" title="Bank Transfer"></i>
+        <!-- Footer Section -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-grid">
+                    <!-- Company Info -->
+                    <div class="footer-section">
+                        <div class="footer-brand">
+                            <img src="../img/logo.png" alt="BelanjaHub Logo" class="footer-logo">
+                            <span class="footer-brand-text">BelanjaHub</span>
+                        </div>
+                        <p class="footer-description">
+                            The most complete online fashion store with the best quality and affordable prices. 
+                            Discover your best style with us.
+                        </p>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="TikTok">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="YouTube">
+                                <i class="fab fa-youtube"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Links -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Quick Links</h3>
+                        <ul class="footer-links">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="clothing.html">Clothing</a></li>
+                            <li><a href="accessoris.html">Accessories</a></li>
+                            <li><a href="shoes.html">Shoes</a></li>
+                            <li><a href="/pages/cart.html">Shopping Cart</a></li>
+                            <li><a href="/pages/login.html">My Account</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Customer Service -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Customer Service</h3>
+                        <ul class="footer-links">
+                            <li><a href="#">Help & FAQ</a></li>
+                            <li><a href="#">How to Shop</a></li>
+                            <li><a href="#">Shipping</a></li>
+                            <li><a href="#">Returns</a></li>
+                            <li><a href="#">Terms & Conditions</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                        </ul>
+                    </div>
+
+                    <!-- Contact Info -->
+                    <div class="footer-section">
+                        <h3 class="footer-title">Contact Us</h3>
+                        <ul class="contact-info">
+                            <li>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Jl. Fashion No. 123, Central Jakarta, Indonesia</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-phone"></i>
+                                <span>(021) 1234-5678</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-envelope"></i>
+                                <span>info@belanjahub.com</span>
+                            </li>
+                            <li>
+                                <i class="fas fa-clock"></i>
+                                <span>Monday - Friday: 09:00 - 21:00 WIB</span>
+                            </li>
+                        </ul>
+                        
+                        <!-- Newsletter Subscription -->
+                        <div class="newsletter">
+                            <h4>Subscribe to Newsletter</h4>
+                            <p>Get promotions and latest products directly to your email</p>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Enter your email" required>
+                                <button type="submit">Subscribe</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <div class="copyright">
-                    <p>&copy; 2025 BelanjaHub. All rights reserved. | Developed with <i class="fas fa-heart"></i> by Tim BelanjaHub</p>
+
+                <!-- Copyright -->
+                <div class="footer-bottom">
+                    <div class="payment-methods">
+                        <span>Payment Methods:</span>
+                        <div class="payment-icons">
+                            <i class="fab fa-cc-visa" title="Visa"></i>
+                            <i class="fab fa-cc-mastercard" title="Mastercard"></i>
+                            <i class="fab fa-cc-paypal" title="PayPal"></i>
+                            <i class="fas fa-credit-card" title="Credit Card"></i>
+                            <i class="fas fa-university" title="Bank Transfer"></i>
+                        </div>
+                    </div>
+                    <div class="copyright">
+                        <p>&copy; 2025 BelanjaHub. All rights reserved. | Developed with <i class="fas fa-heart"></i> by BelanjaHub Team</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
     </main>
+
     <!-- Live Chat Widget -->
-<div class="live-chat-widget" id="liveChatWidget">
-    <button class="chat-toggle" id="chatToggle" aria-label="Open Chat">
-        <i class="fas fa-comments"></i>
-        <span class="chat-badge" id="chatBadge">0</span>
-    </button>
-    
-    <div class="chat-container" id="chatContainer">
-        <div class="chat-header">
-            <div class="chat-header-info">
-                <h3><i class="fas fa-headset"></i> Live Chat Support</h3>
-                <p class="chat-status">
-                    <span class="status-dot online"></span>
-                    Online - Balas dalam beberapa menit
-                </p>
-            </div>
-            <button class="chat-close" id="chatClose" aria-label="Close Chat">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
+    <div class="live-chat-widget" id="liveChatWidget">
+        <button class="chat-toggle" id="chatToggle" aria-label="Open Chat">
+            <i class="fas fa-comments"></i>
+            <span class="chat-badge" id="chatBadge">0</span>
+        </button>
         
-        <div class="chat-messages" id="chatMessages">
-            <!-- Pesan akan muncul di sini -->
-            <div class="message bot">
-                <div class="message-content">
-                    <div class="message-sender">
-                        <i class="fas fa-robot"></i> BelanjaHub Bot
+        <div class="chat-container" id="chatContainer">
+            <div class="chat-header">
+                <div class="chat-header-info">
+                    <h3><i class="fas fa-headset"></i> Live Chat Support</h3>
+                    <p class="chat-status">
+                        <span class="status-dot online"></span>
+                        Online - Reply within minutes
+                    </p>
+                </div>
+                <button class="chat-close" id="chatClose" aria-label="Close Chat">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            
+            <div class="chat-messages" id="chatMessages">
+                <!-- Messages will appear here -->
+                <div class="message bot">
+                    <div class="message-content">
+                        <div class="message-sender">
+                            <i class="fas fa-robot"></i> BelanjaHub Bot
+                        </div>
+                        <div class="message-text">
+                            Hello! 👋 I'm BelanjaHub Bot. How can I help you? Feel free to ask about products, shipping, or payments.
+                        </div>
+                        <div class="message-time">Just now</div>
                     </div>
-                    <div class="message-text">
-                        Halo! 👋 Saya Bot BelanjaHub. Ada yang bisa saya bantu? Silakan tanyakan tentang produk, pengiriman, atau pembayaran.
-                    </div>
-                    <div class="message-time">Baru saja</div>
                 </div>
             </div>
-        </div>
-        
-        <div class="quick-replies">
-            <button class="quick-reply" data-question="Ada diskon hari ini?">
-                <i class="fas fa-tag"></i> Ada diskon?
-            </button>
-            <button class="quick-reply" data-question="Berapa lama pengiriman?">
-                <i class="fas fa-truck"></i> Pengiriman
-            </button>
-            <button class="quick-reply" data-question="Cara bayar bagaimana?">
-                <i class="fas fa-credit-card"></i> Cara Bayar
-            </button>
-        </div>
-        
-        <div class="chat-input">
-            <input 
-                type="text" 
-                id="chatInput" 
-                placeholder="Ketik pesan Anda..."
-                autocomplete="off"
-            />
-            <button id="sendMessage" class="send-btn" aria-label="Send Message">
-                <i class="fas fa-paper-plane"></i>
-            </button>
+            
+            <div class="quick-replies">
+                <button class="quick-reply" data-question="Any discounts today?">
+                    <i class="fas fa-tag"></i> Any discounts?
+                </button>
+                <button class="quick-reply" data-question="How long does shipping take?">
+                    <i class="fas fa-truck"></i> Shipping
+                </button>
+                <button class="quick-reply" data-question="How to pay?">
+                    <i class="fas fa-credit-card"></i> Payment Methods
+                </button>
+            </div>
+            
+            <div class="chat-input">
+                <input 
+                    type="text" 
+                    id="chatInput" 
+                    placeholder="Type your message..."
+                    autocomplete="off"
+                />
+                <button id="sendMessage" class="send-btn" aria-label="Send Message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
         </div>
     </div>
-</div>  
-    <!-- JavaScript -->
-<!-- JavaScript -->
- <script src="../js/chat.js"></script>
-<script src="../js/script.js"></script>
 
-<script>
-    // Cart System untuk Index Page
-    document.addEventListener('DOMContentLoaded', function() {
-        // Add to cart functionality untuk etalase baju pria
-        document.querySelectorAll('.add-to-cart-btn').forEach(button => {
-            button.addEventListener('click', function() {
-                const productId = parseInt(this.getAttribute('data-id'));
-                const productCard = this.closest('.fashion-card');
-                const productName = productCard.querySelector('.fashion-title').textContent;
-                const productPrice = parseInt(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace('.', ''));
-                
-                // Gunakan fungsi global dari script.js
-                const added = addToCart(productId, productName, productPrice, '../img/baju.png');
-                
-                if (added) {
-                    // Button animation
-                    const originalText = this.innerHTML;
-                    this.innerHTML = '<i class="fas fa-check"></i> Ditambahkan';
-                    this.disabled = true;
+    <!-- JavaScript -->
+    <script src="../js/chat.js"></script>
+    <script src="../js/script.js"></script>
+
+    <script>
+        // Cart System for Index Page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Add to cart functionality for men's clothing display
+            document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = parseInt(this.getAttribute('data-id'));
+                    const productCard = this.closest('.fashion-card');
+                    const productName = productCard.querySelector('.fashion-title').textContent;
+                    const productPrice = parseInt(productCard.querySelector('.current-price').textContent.replace('Rp ', '').replace('.', ''));
                     
-                    setTimeout(() => {
-                        this.innerHTML = originalText;
-                        this.disabled = false;
-                    }, 1500);
-                }
+                    // Use global function from script.js
+                    const added = addToCart(productId, productName, productPrice, '../img/baju.png');
+                    
+                    if (added) {
+                        // Button animation
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-check"></i> Added';
+                        this.disabled = true;
+                        
+                        setTimeout(() => {
+                            this.innerHTML = originalText;
+                            this.disabled = false;
+                        }, 1500);
+                    }
+                });
+            });
+            
+            // Quick view functionality
+            document.querySelectorAll('.quick-view-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const productCard = this.closest('.fashion-card');
+                    const productName = productCard.querySelector('.fashion-title').textContent;
+                    const productCategory = productCard.querySelector('.fashion-category').textContent;
+                    const currentPrice = productCard.querySelector('.current-price').textContent;
+                    
+                    alert(`Quick View: ${productName}\nCategory: ${productCategory}\nPrice: ${currentPrice}\n\nProduct detail feature will be displayed here.`);
+                });
             });
         });
-        
-        // Quick view functionality
-        document.querySelectorAll('.quick-view-btn').forEach(button => {
-            button.addEventListener('click', function(e) {
-                e.stopPropagation();
-                const productCard = this.closest('.fashion-card');
-                const productName = productCard.querySelector('.fashion-title').textContent;
-                const productCategory = productCard.querySelector('.fashion-category').textContent;
-                const currentPrice = productCard.querySelector('.current-price').textContent;
-                
-                alert(`Quick View: ${productName}\nKategori: ${productCategory}\nHarga: ${currentPrice}\n\nFitur detail produk akan ditampilkan di sini.`);
-            });
-        });
-    });
-</script>
+    </script>
 </body>
 </html>

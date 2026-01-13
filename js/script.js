@@ -1,39 +1,39 @@
-// ../js/script.js - File utama untuk semua halaman
+// ../js/script.js - Main file for all pages
 
-// Data produk untuk search (Database produk)
+// Product data for search (Product database)
 const productDatabase = [
     // Clothing products (ID 101-108)
-    { id: 101, name: "Kaos Polos Premium", category: "clothing", price: 99000, page: "clothing.html", img: "https://static.desty.app/desty-store/gudanggaram16/product/48adf6a837df4cc3beaaee30e3d02457?x-oss-process=image/format,webp" },
-    { id: 102, name: "Kemeja Casual Pria", category: "clothing", price: 159000, page: "clothing.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/111/MTA-156964476/no-brand_kemeja-pria-kekinian-kemeja-casual-pria-terbaru-kemeja-polos-pria_full12.jpg" },
-    { id: 103, name: "Hoodie Oversize Pria", category: "clothing", price: 229000, page: "clothing.html", img: "https://houseofsmith.co.id/wp-content/uploads/2025/10/ginee_20251021112846938_5104647282.jpg" },
-    { id: 104, name: "Jaket Denim Pria", category: "clothing", price: 349000, page: "clothing.html", img: "https://konveksidiamond.com/wp-content/uploads/2023/02/Jaket-denim-jogja.jpeg" },
-    { id: 105, name: "Celana Chino Pria", category: "clothing", price: 189000, page: "clothing.html", img: "https://down-id.img.susercontent.com/file/0fe1f469e02531b8cb51af722d22e18a" },
-    { id: 106, name: "Sweater Rajut Pria", category: "clothing", price: 279000, page: "clothing.html", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_qQJ41TXO4mOqUmu_4adlMGQUhm-oxCI_8g&s" },
-    { id: 107, name: "Kaos Polo Pria", category: "clothing", price: 129000, page: "clothing.html", img: "https://img.lazcdn.com/g/p/59c4f590181f34c0f380b00c5ff19370.jpg_720x720q80.jpg" },
-    { id: 108, name: "Blazer Formal Pria", category: "clothing", price: 499000, page: "clothing.html", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBkAbIUUI-Z4MxxKJOKPZ5bntxpBSL1m5TFg&s" },
+    { id: 101, name: "Premium Plain T-Shirt", category: "clothing", price: 99000, page: "clothing.html", img: "https://static.desty.app/desty-store/gudanggaram16/product/48adf6a837df4cc3beaaee30e3d02457?x-oss-process=image/format,webp" },
+    { id: 102, name: "Men's Casual Shirt", category: "clothing", price: 159000, page: "clothing.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/111/MTA-156964476/no-brand_kemeja-pria-kekinian-kemeja-casual-pria-terbaru-kemeja-polos-pria_full12.jpg" },
+    { id: 103, name: "Men's Oversize Hoodie", category: "clothing", price: 229000, page: "clothing.html", img: "https://houseofsmith.co.id/wp-content/uploads/2025/10/ginee_20251021112846938_5104647282.jpg" },
+    { id: 104, name: "Men's Denim Jacket", category: "clothing", price: 349000, page: "clothing.html", img: "https://konveksidiamond.com/wp-content/uploads/2023/02/Jaket-denim-jogja.jpeg" },
+    { id: 105, name: "Men's Chino Pants", category: "clothing", price: 189000, page: "clothing.html", img: "https://down-id.img.susercontent.com/file/0fe1f469e02531b8cb51af722d22e18a" },
+    { id: 106, name: "Men's Knit Sweater", category: "clothing", price: 279000, page: "clothing.html", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT_qQJ41TXO4mOqUmu_4adlMGQUhm-oxCI_8g&s" },
+    { id: 107, name: "Men's Polo Shirt", category: "clothing", price: 129000, page: "clothing.html", img: "https://img.lazcdn.com/g/p/59c4f590181f34c0f380b00c5ff19370.jpg_720x720q80.jpg" },
+    { id: 108, name: "Men's Formal Blazer", category: "clothing", price: 499000, page: "clothing.html", img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBkAbIUUI-Z4MxxKJOKPZ5bntxpBSL1m5TFg&s" },
 
     // Accessories products (ID 201-208)
-    { id: 201, name: "Tas Ransel Premium", category: "accessories", price: 249000, page: "accessoris.html", img: "https://img.lazcdn.com/g/p/50a806e6a21e784d50ffea84df6a4dce.jpg_720x720q80.jpg" },
-    { id: 202, name: "Jam Tangan Casual", category: "accessories", price: 189000, page: "accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7r98w-lyn7xbryitbcc1" },
-    { id: 203, name: "Topi Baseball Premium", category: "accessories", price: 89000, page: "accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7qukx-lf0ua1cfd38t2e" },
-    { id: 204, name: "Dompet Kulit Pria", category: "accessories", price: 159000, page: "accessoris.html", img: "https://down-id.img.susercontent.com/file/31676a8a0b186442550b15b282ae6fbf" },
-    { id: 205, name: "Kacamata Hitam Premium", category: "accessories", price: 129000, page: "accessoris.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/103/MTA-153874624/gykaco_gykaco_nira_-_kacamata_hitam_wanita_-premium-_-_fashion_sunglasses_-import-_full08_u0sbzx25.jpg" },
-    { id: 206, name: "Gelang Kulit Pria", category: "accessories", price: 69000, page: "accessoris.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-56837000/jiayiqi_bracelet-men-high-quality-leather-gelang-pria-gelang-kulit-cowok_full02.jpg" },
-    { id: 207, name: "Belt Kulit Premium", category: "accessories", price: 119000, page: "accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7r992-ltc24kum6lq1e1" },
-    { id: 208, name: "Kalung Titanium", category: "accessories", price: 100000, page: "accessoris.html", img: "https://bimg.akulaku.net/goods/spu/0d074c52ebb34cfd9db9195fd9dd421e7741.jpg?w=726&q=80&fit=1" },
+    { id: 201, name: "Premium Backpack", category: "accessories", price: 249000, page: "accessoris.html", img: "https://img.lazcdn.com/g/p/50a806e6a21e784d50ffea84df6a4dce.jpg_720x720q80.jpg" },
+    { id: 202, name: "Casual Watch", category: "accessories", price: 189000, page: "accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7r98w-lyn7xbryitbcc1" },
+    { id: 203, name: "Premium Baseball Cap", category: "accessories", price: 89000, page: "accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7qukx-lf0ua1cfd38t2e" },
+    { id: 204, name: "Men's Leather Wallet", category: "accessories", price: 159000, page: "accessoris.html", img: "https://down-id.img.susercontent.com/file/31676a8a0b186442550b15b282ae6fbf" },
+    { id: 205, name: "Premium Sunglasses", category: "accessories", price: 129000, page: "accessoris.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full/catalog-image/103/MTA-153874624/gykaco_gykaco_nira_-_kacamata_hitam_wanita_-premium-_-_fashion_sunglasses_-import-_full08_u0sbzx25.jpg" },
+    { id: 206, name: "Men's Leather Bracelet", category: "accessories", price: 69000, page: "accessoris.html", img: "https://www.static-src.com/wcsstore/Indraprastha/images/catalog/full//95/MTA-56837000/jiayiqi_bracelet-men-high-quality-leather-gelang-pria-gelang-kulit-cowok_full02.jpg" },
+    { id: 207, name: "Premium Leather Belt", category: "accessories", price: 119000, page: "accessoris.html", img: "https://down-id.img.susercontent.com/file/id-11134207-7r992-ltc24kum6lq1e1" },
+    { id: 208, name: "Titanium Necklace", category: "accessories", price: 100000, page: "accessoris.html", img: "https://bimg.akulaku.net/goods/spu/0d074c52ebb34cfd9db9195fd9dd421e7741.jpg?w=726&q=80&fit=1" },
 
     // Shoes products (ID 301-308)
-    { id: 301, name: "Sneakers Casual Premium", category: "shoes", price: 329000, page: "shoes.html", img: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/471a5872c7e24aa0856a04d3a08e357c~tplv-o3syd03w52-resize-webp:800:800.webp?dr=15584&t=555f072d&ps=933b5bde&shp=6ce186a1&shcp=e1be8f53&idc=my&from=1826719393" },
-    { id: 302, name: "Sepatu Formal Leather", category: "shoes", price: 489000, page: "shoes.html", img: "https://www.ginomariani.com/cdn/shop/files/id-11134207-7rasg-m2c59rs5jn40f5.jpg?v=1757305113&width=1445" },
-    { id: 303, name: "Running Shoes Sport", category: "shoes", price: 429000, page: "shoes.html", img: "https://m.media-amazon.com/images/I/71f3BmjCwtL.jpg" },
-    { id: 304, name: "Leather Boots Pria", category: "shoes", price: 659000, page: "shoes.html", img: "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/N25135s3.jpg?im=Resize,width=750" },
-    { id: 305, name: "Sandal Casual Pria", category: "shoes", price: 129000, page: "shoes.html", img: "https://down-id.img.susercontent.com/file/32f6e5d00d15b461e94c6bf40933942a" },
-    { id: 306, name: "Slip On Casual Shoes", category: "shoes", price: 279000, page: "shoes.html", img: "https://image.made-in-china.com/202f0j00QCPfOVcUsWoT/Men-s-Foldable-Flat-Slip-on-Soft-Casual-Denim-Driving-Loafer-Shoes.webp" },
-    { id: 307, name: "Canvas Shoes Basic", category: "shoes", price: 199000, page: "shoes.html", img: "https://i.ebayimg.com/images/g/afgAAOSwXKFnA7Ip/s-l1200.jpg" },
-    { id: 308, name: "Loafers Premium", category: "shoes", price: 359000, page: "shoes.html", img: "https://dynamic.zacdn.com/xhMWUm1iL0paUfS7XUpYUvy-Jn0=/0x440/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/berrybenka-label-9821-7508215-1.jpg" }
+    { id: 301, name: "Premium Casual Sneakers", category: "shoes", price: 329000, page: "shoes.html", img: "https://p16-oec-va.ibyteimg.com/tos-maliva-i-o3syd03w52-us/471a5872c7e24aa0856a04d3a08e357c~tplv-o3syd03w52-resize-webp:800:800.webp?dr=15584&t=555f072d&ps=933b5bde&shp=6ce186a1&shcp=e1be8f53&idc=my&from=1826719393" },
+    { id: 302, name: "Leather Formal Shoes", category: "shoes", price: 489000, page: "shoes.html", img: "https://www.ginomariani.com/cdn/shop/files/id-11134207-7rasg-m2c59rs5jn40f5.jpg?v=1757305113&width=1445" },
+    { id: 303, name: "Sport Running Shoes", category: "shoes", price: 429000, page: "shoes.html", img: "https://m.media-amazon.com/images/I/71f3BmjCwtL.jpg" },
+    { id: 304, name: "Men's Leather Boots", category: "shoes", price: 659000, page: "shoes.html", img: "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/N25135s3.jpg?im=Resize,width=750" },
+    { id: 305, name: "Men's Casual Sandals", category: "shoes", price: 129000, page: "shoes.html", img: "https://down-id.img.susercontent.com/file/32f6e5d00d15b461e94c6bf40933942a" },
+    { id: 306, name: "Casual Slip On Shoes", category: "shoes", price: 279000, page: "shoes.html", img: "https://image.made-in-china.com/202f0j00QCPfOVcUsWoT/Men-s-Foldable-Flat-Slip-on-Soft-Casual-Denim-Driving-Loafer-Shoes.webp" },
+    { id: 307, name: "Basic Canvas Shoes", category: "shoes", price: 199000, page: "shoes.html", img: "https://i.ebayimg.com/images/g/afgAAOSwXKFnA7Ip/s-l1200.jpg" },
+    { id: 308, name: "Premium Loafers", category: "shoes", price: 359000, page: "shoes.html", img: "https://dynamic.zacdn.com/xhMWUm1iL0paUfS7XUpYUvy-Jn0=/0x440/filters:quality(70):format(webp)/https://static-id.zacdn.com/p/berrybenka-label-9821-7508215-1.jpg" }
 ];
 
-// Pastikan database tersedia global untuk cart.js
+// Ensure database is available globally for cart.js
 window.productDatabase = productDatabase;
 
 // ======================
@@ -46,13 +46,13 @@ document.addEventListener('DOMContentLoaded', function() {
     updateCartCount();
     setupAddToCartListeners();
     
-    // Scroll ke produk jika ada dari search
+    // Scroll to product if from search
     scrollToProduct();
     
-    // Highlight search results jika ada
+    // Highlight search results if any
     highlightSearchResults();
     
-    // Setup event listener untuk logout
+    // Setup event listener for logout
     const logoutBtn = document.getElementById('logoutBtn');
     if (logoutBtn) {
         logoutBtn.addEventListener('click', function(e) {
@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             localStorage.removeItem('userName');
             localStorage.removeItem('userEmail');
             
-            showNotification('Anda telah logout!');
+            showNotification('You have logged out!');
             setTimeout(() => {
                 window.location.href = 'index.html';
             }, 1000);
@@ -70,23 +70,23 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// FUNGSI untuk setup event listeners add-to-cart
+// FUNCTION to setup add-to-cart event listeners
 function setupAddToCartListeners() {
-    // Hapus semua event listener sebelumnya (prevent duplicate)
+    // Remove all previous event listeners (prevent duplicate)
     document.removeEventListener('click', handleAddToCartClick);
     
-    // Tambahkan event listener baru
+    // Add new event listener
     document.addEventListener('click', handleAddToCartClick);
 }
 
-// Fungsi handler untuk klik add-to-cart
+// Handler function for add-to-cart click
 function handleAddToCartClick(e) {
     const button = e.target.closest('.add-to-cart-btn');
     if (!button) return;
     
     e.preventDefault();
     
-    // Ambil data dari parent element (fashion-card)
+    // Get data from parent element (fashion-card)
     const productCard = button.closest('.fashion-card, .shoe-card, .accessory-card');
     if (!productCard) return;
     
@@ -95,10 +95,10 @@ function handleAddToCartClick(e) {
     const productPrice = parseInt(productCard.getAttribute('data-price'));
     const productImg = productCard.getAttribute('data-img');
     
-    // Validasi data
+    // Validate data
     if (!productId || !productName || !productPrice) {
         console.error('Product data missing!', {productId, productName, productPrice, productImg});
-        showNotification('Data produk tidak lengkap!', 'error');
+        showNotification('Product data incomplete!', 'error');
         return;
     }
     
@@ -128,7 +128,7 @@ function checkLoginStatus() {
             userInfo.style.display = 'flex';
             userInfo.classList.add('logged-in');
         }
-        if (userNameSpan) userNameSpan.textContent = `Halo, ${userName}`;
+        if (userNameSpan) userNameSpan.textContent = `Hello, ${userName}`;
     } else {
         if (loginBtn) loginBtn.style.display = 'inline-block';
         if (userInfo) {
@@ -171,13 +171,13 @@ function saveCart(cart) {
     }
 }
 
-// HANYA SATU FUNGSI addToCart
+// ONLY ONE addToCart FUNCTION
 function addToCart(productId, productName, productPrice, productImg) {
     // Check login status
     const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
     
     if (!isLoggedIn) {
-        if (confirm('Anda harus login terlebih dahulu untuk menambahkan ke keranjang. Login sekarang?')) {
+        if (confirm('You must login first to add to cart. Login now?')) {
             window.location.href = 'pages/login.html';
         }
         return false;
@@ -185,32 +185,32 @@ function addToCart(productId, productName, productPrice, productImg) {
     
     let cart = getCart();
     
-    // Convert productId ke number untuk konsistensi
+    // Convert productId to number for consistency
     const id = Number(productId);
     
     // Check if product already in cart
     const existingItemIndex = cart.findIndex(item => item.id === id);
     
     if (existingItemIndex !== -1) {
-        // Update quantity jika sudah ada
+        // Update quantity if already exists
         cart[existingItemIndex].quantity = (cart[existingItemIndex].quantity || 1) + 1;
         console.log('Updated existing item:', cart[existingItemIndex]);
     } else {
-        // Validasi dan perbaiki gambar jika perlu
+        // Validate and fix image if needed
         let validImage = productImg;
         if (!validImage || validImage.includes('undefined') || validImage.includes('baju.png')) {
-            // Cari gambar dari database
+            // Find image from database
             const dbProduct = window.productDatabase.find(p => p.id === id);
             if (dbProduct && dbProduct.img) {
                 validImage = dbProduct.img;
             } else {
-                // Gunakan placeholder
+                // Use placeholder
                 const shortName = productName.substring(0, 15).replace(/\s+/g, '+');
                 validImage = `https://placehold.co/200x200/001f3f/FFFFFF/png?text=${shortName}`;
             }
         }
         
-        // Tambah item baru
+        // Add new item
         cart.push({
             id: id,
             name: productName,
@@ -222,7 +222,7 @@ function addToCart(productId, productName, productPrice, productImg) {
     }
     
     saveCart(cart);
-    showNotification(`${productName} berhasil ditambahkan ke keranjang!`);
+    showNotification(`${productName} successfully added to cart!`);
     return true;
 }
 
@@ -230,7 +230,7 @@ function removeFromCart(productId) {
     let cart = getCart();
     cart = cart.filter(item => item.id !== productId);
     saveCart(cart);
-    showNotification('Produk dihapus dari keranjang!');
+    showNotification('Product removed from cart!');
     return cart;
 }
 
@@ -301,9 +301,9 @@ function initializeSearch() {
     }
 }
 
-// GANTI fungsi handleSearch dengan versi ini:
+// REPLACE handleSearch function with this version:
 
-// GANTI fungsi handleSearch dengan versi ini yang lebih sederhana:
+// REPLACE handleSearch function with this simpler version:
 function handleSearch() {
     const searchInput = document.getElementById('searchInput');
     if (!searchInput) return;
@@ -311,35 +311,35 @@ function handleSearch() {
     const searchTerm = searchInput.value.trim().toLowerCase();
     
     if (!searchTerm) {
-        showNotification('Silakan masukkan kata kunci pencarian!', 'error');
+        showNotification('Please enter search keywords!', 'error');
         return;
     }
     
-    // Cari produk yang cocok
+    // Find matching products
     const results = productDatabase.filter(product => 
         product.name.toLowerCase().includes(searchTerm) ||
         product.category.toLowerCase().includes(searchTerm)
     );
     
     if (results.length === 0) {
-        showNotification(`Tidak ditemukan produk dengan kata kunci "${searchTerm}"`, 'error');
+        showNotification(`No products found with keyword "${searchTerm}"`, 'error');
         return;
     }
     
     console.log('Search results found:', results.length);
     
-    // Simpan hasil pencarian untuk penggunaan nanti
+    // Save search results for later use
     localStorage.setItem('lastSearch', searchTerm);
     localStorage.setItem('searchResults', JSON.stringify(results));
     
-    // Tentukan halaman tujuan berdasarkan kategori
+    // Determine target page based on category
     let targetPage = '';
     
     if (results.length === 1) {
-        // Jika hanya 1 hasil, langsung ke halaman produk tersebut
+        // If only 1 result, go directly to that product page
         const product = results[0];
         
-        // Tentukan path berdasarkan lokasi saat ini
+        // Determine path based on current location
         const currentPath = window.location.pathname;
         const isInPages = currentPath.includes('/pages/');
         
@@ -357,17 +357,17 @@ function handleSearch() {
                 targetPage = isInPages ? 'index.html' : '../index.html';
         }
         
-        // Simpan ID produk untuk scroll nanti
+        // Save product ID for scrolling later
         localStorage.setItem('scrollToProduct', product.id);
         
     } else {
-        // Jika banyak hasil, cari kategori dengan hasil terbanyak
+        // If multiple results, find category with most results
         const categoryCount = {};
         results.forEach(p => {
             categoryCount[p.category] = (categoryCount[p.category] || 0) + 1;
         });
         
-        // Cari kategori dengan jumlah terbanyak
+        // Find category with highest count
         let topCategory = 'clothing';
         let maxCount = 0;
         
@@ -378,7 +378,7 @@ function handleSearch() {
             }
         });
         
-        // Tentukan path berdasarkan lokasi saat ini
+        // Determine path based on current location
         const currentPath = window.location.pathname;
         const isInPages = currentPath.includes('/pages/');
         
@@ -399,12 +399,12 @@ function handleSearch() {
     
     console.log('Redirecting to:', targetPage);
     
-    // Redirect ke halaman tujuan
+    // Redirect to target page
     window.location.href = targetPage;
 }
 
 function getCorrectPagePath(targetPageFromDB) {
-    // targetPageFromDB contoh: "pages/clothing.html"
+    // targetPageFromDB example: "pages/clothing.html"
     const currentPath = window.location.pathname;
     const isInPagesFolder = currentPath.includes('/pages/');
     
@@ -412,28 +412,28 @@ function getCorrectPagePath(targetPageFromDB) {
     console.log('📁 Is in pages folder?', isInPagesFolder);
     console.log('🎯 Target from DB:', targetPageFromDB);
     
-    // Jika target dari DB sudah ada "pages/"
+    // If target from DB already has "pages/"
     if (targetPageFromDB.startsWith('pages/')) {
         if (isInPagesFolder) {
-            // Jika sudah di folder pages, hapus "pages/" dari awal
+            // If already in pages folder, remove "pages/" from beginning
             return targetPageFromDB.replace('pages/', '');
         } else {
-            // Jika di root (index.html), tetap pakai "pages/"
+            // If in root (index.html), keep "pages/"
             return targetPageFromDB;
         }
     } else {
-        // Jika target dari DB TIDAK ada "pages/" (misal: "clothing.html")
+        // If target from DB does NOT have "pages/" (e.g., "clothing.html")
         if (isInPagesFolder) {
-            // Jika sudah di folder pages, langsung pakai
+            // If already in pages folder, use directly
             return targetPageFromDB;
         } else {
-            // Jika di root, tambahkan "pages/"
+            // If in root, add "pages/"
             return 'pages/' + targetPageFromDB;
         }
     }
 }
 
-// FUNGSI BARU: Dapatkan URL target yang benar
+// NEW FUNCTION: Get correct target URL
 function getTargetUrl(category) {
     const baseUrl = window.location.origin;
     const currentPath = window.location.pathname;
@@ -455,13 +455,13 @@ function getTargetUrl(category) {
             pageName = 'index.html';
     }
     
-    // Cek apakah kita sudah di folder pages atau di root
+    // Check if we are already in pages folder or in root
     if (currentPath.includes('/pages/')) {
-        // Jika sudah di pages/, langsung ke file
+        // If already in pages/, go directly to file
         return `${baseUrl}/pages/${pageName}`;
     } else {
-        // Jika di root (index.html), tambahkan pages/
-        // TAPI jika ke index.html, jangan tambah pages/
+        // If in root (index.html), add pages/
+        // BUT if going to index.html, don't add pages/
         if (pageName === 'index.html') {
             return `${baseUrl}/${pageName}`;
         } else {
@@ -470,7 +470,7 @@ function getTargetUrl(category) {
     }
 }
 
-// Update juga fungsi redirectByCategory
+// Also update redirectByCategory function
 function redirectByCategory(category) {
     const targetUrl = getTargetUrl(category);
     console.log('🎯 Category redirect to:', targetUrl);
@@ -480,7 +480,7 @@ function redirectByCategory(category) {
     }, 100);
 }
 
-// Update juga fungsi redirectToBestCategory
+// Also update redirectToBestCategory function
 function redirectToBestCategory(results) {
     const categoryCount = {};
     
@@ -502,10 +502,10 @@ function redirectToBestCategory(results) {
     
     console.log('Top category:', topCategory);
     
-    // Simpan hasil untuk highlight
+    // Save results for highlighting
     localStorage.setItem('searchResults', JSON.stringify(results));
     
-    // Redirect ke kategori teratas
+    // Redirect to top category
     redirectByCategory(topCategory);
 }
 
@@ -516,7 +516,7 @@ function scrollToProduct() {
     
     console.log('Trying to scroll to product ID:', productId);
     
-    // Coba beberapa kali dengan delay berbeda
+    // Try multiple times with different delays
     const attempts = [
         { delay: 500 },
         { delay: 1000 },
@@ -530,29 +530,29 @@ function scrollToProduct() {
             if (productElement) {
                 console.log('Product element found!', productElement);
                 
-                // Scroll ke produk
+                // Scroll to product
                 productElement.scrollIntoView({
                     behavior: 'smooth',
                     block: 'center'
                 });
                 
-                // Highlight produk (TANPA BADGE)
+                // Highlight product (WITHOUT BADGE)
                 productElement.style.transition = 'all 0.5s ease';
                 productElement.style.boxShadow = '0 0 20px rgba(230, 126, 34, 0.5)';
                 productElement.style.borderRadius = '15px';
                 productElement.style.zIndex = '100';
                 
-                // Tambah animasi pulsing
+                // Add pulsing animation
                 productElement.style.animation = 'pulse 2s infinite';
                 
-                // Hapus highlight setelah 3 detik
+                // Remove highlight after 3 seconds
                 setTimeout(() => {
                     productElement.style.boxShadow = '';
                     productElement.style.borderRadius = '';
                     productElement.style.animation = '';
                 }, 3000);
                 
-                // Hapus ID dari localStorage
+                // Remove ID from localStorage
                 localStorage.removeItem('scrollToProduct');
             }
         }, attempt.delay);
@@ -567,11 +567,11 @@ function highlightSearchResults() {
     
     console.log('Highlighting search results for:', lastSearch);
     
-    // HAPUS SEMUA BADGE SEBELUMNYA TERLEBIH DAHULU
+    // REMOVE ALL PREVIOUS BADGES FIRST
     const existingBadges = document.querySelectorAll('.search-highlight-badge');
     existingBadges.forEach(badge => badge.remove());
     
-    // Hapus highlight sebelumnya
+    // Remove previous highlights
     searchResults.forEach(product => {
         const productElement = document.querySelector(`[data-id="${product.id}"]`);
         if (productElement) {
@@ -580,26 +580,26 @@ function highlightSearchResults() {
         }
     });
     
-    // Tunggu sebentar untuk memastikan DOM siap
+    // Wait a bit to ensure DOM is ready
     setTimeout(() => {
         let hasHighlighted = false;
         
         searchResults.forEach(product => {
-            // Cari elemen produk
+            // Find product element
             const productElement = document.querySelector(`[data-id="${product.id}"]`);
             
             if (productElement) {
-                // Tambah border highlight
+                // Add border highlight
                 productElement.style.border = '3px solid var(--orange)';
                 productElement.style.borderRadius = '10px';
                 productElement.style.position = 'relative';
                 productElement.style.overflow = 'visible';
                 
-                // Tambah badge hasil pencarian
+                // Add search result badge
                 const badge = document.createElement('div');
                 badge.className = 'search-highlight-badge';
                 badge.innerHTML = `
-                    <i class="fas fa-search"></i> Hasil Pencarian
+                    <i class="fas fa-search"></i> Search Result
                 `;
                 badge.style.cssText = `
                     position: absolute;
@@ -617,7 +617,7 @@ function highlightSearchResults() {
                     white-space: nowrap;
                 `;
                 
-                // Tambah event untuk menghapus badge saat diklik
+                // Add event to remove badge when clicked
                 badge.addEventListener('click', function(e) {
                     e.stopPropagation();
                     this.remove();
@@ -632,7 +632,7 @@ function highlightSearchResults() {
             }
         });
         
-        // Tambah CSS untuk animasi
+        // Add CSS for animations
         if (!document.querySelector('#highlight-animation')) {
             const style = document.createElement('style');
             style.id = 'highlight-animation';
@@ -662,7 +662,7 @@ function highlightSearchResults() {
             document.head.appendChild(style);
         }
         
-        // Hapus highlight setelah 10 detik OTOMATIS
+        // Remove highlight automatically after 10 seconds
         if (hasHighlighted) {
             setTimeout(() => {
                 removeAllSearchHighlights();
@@ -672,34 +672,34 @@ function highlightSearchResults() {
     }, 1000);
 }
 
-// FUNGSI BARU: Hapus semua highlight dan badge
+// NEW FUNCTION: Remove all highlights and badges
 function removeAllSearchHighlights() {
     console.log('Removing all search highlights...');
     
-    // Hapus semua badge
+    // Remove all badges
     const badges = document.querySelectorAll('.search-highlight-badge');
     badges.forEach(badge => badge.remove());
     
-    // Hapus border dari semua produk
+    // Remove border from all products
     const allProducts = document.querySelectorAll('.fashion-card, .shoe-card, .accessory-card');
     allProducts.forEach(product => {
         product.style.border = '';
         product.style.borderRadius = '';
     });
     
-    // Hapus data pencarian dari localStorage
+    // Remove search data from localStorage
     localStorage.removeItem('lastSearch');
     localStorage.removeItem('searchResults');
     localStorage.removeItem('scrollToProduct');
     
-    // Hapus animasi CSS jika ada
+    // Remove CSS animation if exists
     const highlightStyle = document.querySelector('#highlight-animation');
     if (highlightStyle) highlightStyle.remove();
 }
 
-// TAMBAHKAN JUGÀ FUNGSI UNTUK MEMBERSIHKAN PADA HALAMAN LAIN
+// ALSO ADD FUNCTION FOR CLEANING ON OTHER PAGES
 function checkAndCleanSearchData() {
-    // Hapus data search jika pengguna pindah ke halaman lain
+    // Remove search data if user moves to other page
     const currentPath = window.location.pathname;
     const isSearchPage = currentPath.includes('search') || 
                         currentPath.includes('clothing') || 
@@ -714,7 +714,7 @@ function checkAndCleanSearchData() {
 function redirectByCategory(category) {
     let targetPage = 'index.html';
     
-    // Cek halaman saat ini untuk menentukan path yang benar
+    // Check current page to determine correct path
     const currentPath = window.location.pathname;
     const isInPagesFolder = currentPath.includes('/pages/');
     
@@ -743,7 +743,7 @@ function redirectToBestCategory(results) {
     
     console.log('Category counts:', categoryCount);
     
-    // Cari kategori dengan hasil terbanyak
+    // Find category with most results
     let topCategory = 'clothing';
     let maxCount = 0;
     
@@ -754,10 +754,10 @@ function redirectToBestCategory(results) {
         }
     }
     
-    // Simpan hasil pencarian untuk ditampilkan
+    // Save search results for display
     localStorage.setItem('searchResults', JSON.stringify(results));
     
-    // Redirect ke halaman kategori
+    // Redirect to category page
     redirectByCategory(topCategory);
 }
 
@@ -821,10 +821,10 @@ function initializeSearchAutocomplete() {
                     const product = productDatabase.find(p => p.id == productId);
                     
                     if (product) {
-                        // Simpan untuk scroll
+                        // Save for scrolling
                         localStorage.setItem('scrollToProduct', productId);
                         
-                        // Redirect ke halaman produk
+                        // Redirect to product page
                         window.location.href = product.page || redirectByCategory(product.category);
                     }
                 });
@@ -861,9 +861,9 @@ function getCategoryIcon(category) {
 
 function getCategoryName(category) {
     switch(category) {
-        case 'clothing': return 'Pakaian';
-        case 'shoes': return 'Sepatu';
-        case 'accessories': return 'Aksesoris';
+        case 'clothing': return 'Clothing';
+        case 'shoes': return 'Shoes';
+        case 'accessories': return 'Accessories';
         default: return category;
     }
 }
@@ -872,7 +872,7 @@ function getCategoryName(category) {
 // 6. UTILITY FUNCTIONS
 // ======================
 function showNotification(message, type = 'success') {
-    // Cek jika sudah ada notification
+    // Check if notification already exists
     const existingNotification = document.querySelector('.cart-notification');
     if (existingNotification) {
         existingNotification.remove();
@@ -889,13 +889,13 @@ function showNotification(message, type = 'success') {
     
     document.body.appendChild(notification);
     
-    // Animasi masuk
+    // Entrance animation
     setTimeout(() => {
         notification.style.opacity = '1';
         notification.style.transform = 'translateY(0)';
     }, 10);
     
-    // Hapus setelah 3 detik
+    // Remove after 3 seconds
     setTimeout(() => {
         notification.style.opacity = '0';
         notification.style.transform = 'translateY(-20px)';
@@ -908,7 +908,7 @@ function showNotification(message, type = 'success') {
 // ======================
 // 7. GLOBAL FUNCTIONS
 // ======================
-// Export fungsi-fungsi penting ke global scope
+// Export important functions to global scope
 window.checkLoginStatus = checkLoginStatus;
 window.getCart = getCart;
 window.saveCart = saveCart;

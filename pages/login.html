@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="id">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Login - BelanjaHub</title>
-  <!-- PERBAIKAN PATH: gunakan ../css/login.css -->
+  <!-- FIXED PATH: use ../css/login.css -->
   <link rel="stylesheet" href="../css/login.css" />
-  <!-- Font Awesome untuk icon -->
+  <!-- Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -15,11 +15,11 @@
       <div class="auth-card">
         <div class="auth-header">
           <h1><i class="fas fa-shopping-bag"></i> BelanjaHub</h1>
-          <p>Login untuk mulai berbelanja</p>
+          <p>Login to start shopping</p>
         </div>
         
         <form id="loginForm" class="auth-form">
-          <h2>Login ke Akun Anda</h2>
+          <h2>Login to Your Account</h2>
           
           <div class="input-group">
             <label for="email">
@@ -29,7 +29,7 @@
               type="email" 
               id="email" 
               name="email" 
-              placeholder="contoh@email.com" 
+              placeholder="example@email.com" 
               required 
             />
             <span class="error-message" id="emailError"></span>
@@ -43,7 +43,7 @@
               type="password" 
               id="password" 
               name="password" 
-              placeholder="Minimal 6 karakter" 
+              placeholder="Minimum 6 characters" 
               required 
               minlength="6" 
             />
@@ -53,9 +53,9 @@
           <div class="form-options">
             <label class="remember-me">
               <input type="checkbox" id="rememberMe">
-              <span>Ingat saya</span>
+              <span>Remember me</span>
             </label>
-            <a href="#" class="forgot-password">Lupa password?</a>
+            <a href="#" class="forgot-password">Forgot password?</a>
           </div>
           
           <div class="form-actions">
@@ -64,39 +64,39 @@
               <div id="btnLoader" class="btn-loader"></div>
             </button>
             <a href="../index.html" class="btn ghost">
-              <i class="fas fa-arrow-left"></i> Kembali ke Beranda
+              <i class="fas fa-arrow-left"></i> Back to Home
             </a>
           </div>
           
           <div class="auth-divider">
-            <span>atau</span>
+            <span>or</span>
           </div>
           
           <p class="auth-toggle">
-            Belum punya akun? 
-            <a href="signup.html" class="toggle-link">Daftar di sini</a>
+            Don't have an account? 
+            <a href="signup.html" class="toggle-link">Sign up here</a>
           </p>
         </form>
       </div>
     </div>
   </main>
 
-  <!-- Pop-up untuk login berhasil -->
+  <!-- Pop-up for successful login -->
   <div class="popup-overlay" id="successPopup">
     <div class="popup">
       <div class="popup-icon">
         <i class="fas fa-check-circle"></i>
       </div>
-      <h3>Login Berhasil!</h3>
-      <p id="welcomeMessage">Selamat datang kembali!</p>
+      <h3>Login Successful!</h3>
+      <p id="welcomeMessage">Welcome back!</p>
       <button class="popup-btn primary" id="goToHome">
-        <i class="fas fa-home"></i> Lanjut ke Beranda
+        <i class="fas fa-home"></i> Go to Home
       </button>
     </div>
   </div>
 
   <script>
-    // Mengambil elemen form dan pop-up
+    // Get form and pop-up elements
     const loginForm = document.getElementById('loginForm');
     const successPopup = document.getElementById('successPopup');
     const goToHomeBtn = document.getElementById('goToHome');
@@ -104,53 +104,53 @@
     const btnText = document.getElementById('btnText');
     const btnLoader = document.getElementById('btnLoader');
     
-    // Elemen input dan error messages
+    // Input and error message elements
     const emailInput = document.getElementById('email');
     const passwordInput = document.getElementById('password');
     const emailError = document.getElementById('emailError');
     const passwordError = document.getElementById('passwordError');
     const welcomeMessage = document.getElementById('welcomeMessage');
     
-    // Fungsi validasi email
+    // Email validation function
     function isValidEmail(email) {
       const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
       return emailRegex.test(email);
     }
     
-    // Fungsi untuk menampilkan error
+    // Function to show error
     function showError(inputElement, errorElement, message) {
       inputElement.classList.add('input-error');
       errorElement.textContent = message;
       errorElement.style.display = 'block';
     }
     
-    // Fungsi untuk menghapus error
+    // Function to hide error
     function hideError(inputElement, errorElement) {
       inputElement.classList.remove('input-error');
       errorElement.style.display = 'none';
     }
     
-    // Fungsi untuk menampilkan loading state
+    // Function to show loading state
     function showLoading() {
       btnText.style.opacity = '0.5';
       btnLoader.style.display = 'block';
       loginBtn.disabled = true;
     }
     
-    // Fungsi untuk menghapus loading state
+    // Function to hide loading state
     function hideLoading() {
       btnText.style.opacity = '1';
       btnLoader.style.display = 'none';
       loginBtn.disabled = false;
     }
     
-    // Validasi real-time
+    // Real-time validation
     emailInput.addEventListener('blur', function() {
       const email = emailInput.value.trim();
       if (!email) {
-        showError(emailInput, emailError, 'Email harus diisi');
+        showError(emailInput, emailError, 'Email is required');
       } else if (!isValidEmail(email)) {
-        showError(emailInput, emailError, 'Format email tidak valid');
+        showError(emailInput, emailError, 'Invalid email format');
       } else {
         hideError(emailInput, emailError);
       }
@@ -163,9 +163,9 @@
     passwordInput.addEventListener('blur', function() {
       const password = passwordInput.value;
       if (!password) {
-        showError(passwordInput, passwordError, 'Password harus diisi');
+        showError(passwordInput, passwordError, 'Password is required');
       } else if (password.length < 6) {
-        showError(passwordInput, passwordError, 'Password minimal 6 karakter');
+        showError(passwordInput, passwordError, 'Password must be at least 6 characters');
       } else {
         hideError(passwordInput, passwordError);
       }
@@ -175,50 +175,50 @@
       hideError(passwordInput, passwordError);
     });
     
-    // Event listener untuk form submission
+    // Event listener for form submission
     loginForm.addEventListener('submit', async function(event) {
-      event.preventDefault(); // Mencegah form submit default
+      event.preventDefault(); // Prevent default form submit
       
       let isValid = true;
       
-      // Validasi email
+      // Validate email
       const email = emailInput.value.trim();
       if (!email) {
-        showError(emailInput, emailError, 'Email harus diisi');
+        showError(emailInput, emailError, 'Email is required');
         isValid = false;
       } else if (!isValidEmail(email)) {
-        showError(emailInput, emailError, 'Format email tidak valid');
+        showError(emailInput, emailError, 'Invalid email format');
         isValid = false;
       }
       
-      // Validasi password
+      // Validate password
       const password = passwordInput.value;
       if (!password) {
-        showError(passwordInput, passwordError, 'Password harus diisi');
+        showError(passwordInput, passwordError, 'Password is required');
         isValid = false;
       } else if (password.length < 6) {
-        showError(passwordInput, passwordError, 'Password minimal 6 karakter');
+        showError(passwordInput, passwordError, 'Password must be at least 6 characters');
         isValid = false;
       }
       
-      // Jika semua valid, proses login
+      // If all valid, process login
       if (isValid) {
         showLoading();
         
-        // Simulasi delay untuk proses login
+        // Simulate delay for login process
         await new Promise(resolve => setTimeout(resolve, 1500));
         
-        // Cek apakah user ada di localStorage
+        // Check if user exists in localStorage
         const users = JSON.parse(localStorage.getItem('users') || '[]');
         const user = users.find(u => u.email === email && u.password === password);
         
         if (user) {
-          // Simpan status login di localStorage
+          // Save login status in localStorage
           localStorage.setItem('isLoggedIn', 'true');
           localStorage.setItem('userEmail', email);
           localStorage.setItem('userName', user.name || email.split('@')[0]);
           
-          // Jika checkbox "Ingat saya" dicentang
+          // If "Remember me" checkbox is checked
           const rememberMe = document.getElementById('rememberMe').checked;
           if (rememberMe) {
             localStorage.setItem('rememberMe', 'true');
@@ -229,30 +229,30 @@
           }
           
           // Update welcome message
-          welcomeMessage.textContent = `Selamat datang, ${user.name || email.split('@')[0]}!`;
+          welcomeMessage.textContent = `Welcome back, ${user.name || email.split('@')[0]}!`;
           
-          // Tampilkan pop-up sukses
+          // Show success pop-up
           successPopup.style.display = 'flex';
         } else {
           hideLoading();
-          alert('Email atau password salah!\n\nJika belum punya akun, silakan daftar terlebih dahulu.');
+          alert('Invalid email or password!\n\nIf you don\'t have an account, please sign up first.');
         }
       }
     });
     
-    // Event listener untuk tombol "Lanjut ke Beranda"
+    // Event listener for "Go to Home" button
     goToHomeBtn.addEventListener('click', function() {
       window.location.href = '../index.html';
     });
     
-    // Opsional: Tutup pop-up dengan klik di luar pop-up
+    // Optional: Close pop-up by clicking outside
     successPopup.addEventListener('click', function(event) {
       if (event.target === successPopup) {
         window.location.href = '../index.html';
       }
     });
     
-    // Opsional: Tambahkan fitur enter untuk submit form
+    // Optional: Add enter key to submit form
     loginForm.addEventListener('keypress', function(event) {
       if (event.key === 'Enter') {
         event.preventDefault();
@@ -260,18 +260,18 @@
       }
     });
     
-    // Lupa password functionality
+    // Forgot password functionality
     document.querySelector('.forgot-password')?.addEventListener('click', function(e) {
       e.preventDefault();
-      const email = prompt('Masukkan email Anda untuk reset password:');
+      const email = prompt('Enter your email to reset password:');
       if (email && isValidEmail(email)) {
-        alert(`Link reset password telah dikirim ke ${email}\n\n(Catatan: Ini hanya simulasi)`);
+        alert(`Password reset link has been sent to ${email}\n\n(Note: This is just a simulation)`);
       } else if (email) {
-        alert('Email tidak valid!');
+        alert('Invalid email!');
       }
     });
     
-    // Cek jika ada email yang disimpan untuk "Ingat saya"
+    // Check if there is saved email for "Remember me"
     document.addEventListener('DOMContentLoaded', function() {
       const rememberMe = localStorage.getItem('rememberMe') === 'true';
       const savedEmail = localStorage.getItem('savedEmail');
@@ -281,7 +281,7 @@
         document.getElementById('rememberMe').checked = true;
       }
       
-      // Auto-focus ke email input
+      // Auto-focus to email input
       emailInput.focus();
     });
   </script>
